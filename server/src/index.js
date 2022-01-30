@@ -1,16 +1,20 @@
 const express = require('express');
 const cors = require('cors');
-const port = 3000;
-
+const morgan = require('morgan');
 const app = express();
+app.set('port', process.env.PORT || 3000);
+
+// Middlewares
 app.use(express.json());
 app.use(cors());
+app.use(morgan('dev'));
 
 // Routes
 app.use(require('./routes/index.router'));
 
-app.listen(port,()=>{
-    console.log("Server on port " + port);
+// Server start
+app.listen(app.get('port'),()=>{
+    console.log("Server on port " + app.get('port'));
 })
 
 
