@@ -3,7 +3,8 @@ const router = Router();
 const { getStatusCovidController } = require('../controllers/statusCovid.controller');
 
 
-router.get('/', getStatusCovidController );
+
+router.get('/api/covid', getStatusCovidController );
 
 
 
