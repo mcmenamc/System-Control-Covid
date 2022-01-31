@@ -16,6 +16,7 @@ app.use(express.static(path.join(__dirname, '../../client/dist')));
 app.use(require('./routes/index.router'));
 
 
+
 // Server start
 app.listen(app.get('port'),()=>{
     console.log("Server on port " + app.get('port'));
