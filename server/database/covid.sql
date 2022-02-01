@@ -181,13 +181,13 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 INSERT INTO persona (_idPersona, nombre, sexo, edad, email, fotoUrl, telefonoPersona) VALUES ('1', 'Julio Andrei Claudio Domínguez', 'Hombre', '22', 'utp0006096@alumno.utpuebla.edu.mx', 'https://sicea.utpuebla.edu.mx/control/fotos/aspirantes/6096.jpg', '2225669899'), ('2', 'Jesús Antonio Mena de la rosa', 'Hombre', '21', 'utp0140516.alumno.utpuebla.edu.mx', 'https://sicea.utpuebla.edu.mx/control/fotos/aspirantes/140516.jpg', '2213425513');
 INSERT INTO docentes (matriculaD, fk_persona, status, fechaIngreso) VALUES ('UTP1012', '2', '1', '2012-01-27'); 
 INSERT INTO Sintomas (id_Sintoma, nombreSintomas) VALUES ('1', '["Fiebre", "Escalofríos", "Tos", "Dificultad respiratoria"]');
-[5:14 PM]
+
 INSERT INTO statusCovid (_statusCovid, temperatura, fecha, hora, persona__idPersona, Sintomas_id_Sintoma) VALUES ('1', '39.9', '2022-01-27', '18:13:51', '1', '1');
-[5:15 PM]
+
 INSERT INTO torre (_idTorre, nombreTorre) VALUES ('1', 'Torre 1'), ('2', 'Torre 2'), ('3', 'Torre 3');
-[5:18 PM]
+
 INSERT INTO ingreso (_idIngreso, fechaIngreso, fechaSalida, persona__idPersona, fkEntrada, fkSalida) VALUES ('10', '2022-02-24 16:18:15', NULL, '1', '1', NULL);
-[5:20 PM]
+
 SELECT * FROM alumnos INNER JOIN persona on (alumnos.fk_persona = persona._idPersona);
-[5:23 PM]
+
 SELECT * FROM alumnos INNER JOIN persona on (alumnos.fk_persona = persona._idPersona) INNER JOIN statusCovid on (persona._idPersona = statusCovid.persona__idPersona) INNER JOIN Sintomas on (Sintomas.id_Sintoma = statusCovid.Sintomas_id_Sintoma);
