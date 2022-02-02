@@ -141,7 +141,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 -- Table `sistemacontrolcovid`.`tipospersona`
 -- -----------------------------------------------------
-INSERT INTO `tipospersona` (`_idTipos`, `tipoPersona`) 
+INSERT INTO `tiposPersona` (`_idTipos`, `tipoPersona`) 
 VALUES (NULL, 'Alumno'),(NULL, 'Docente'), (NULL, 'visitante');
 -- -----------------------------------------------------
 -- Table `sistemacontrolcovid`.`persona`
@@ -154,14 +154,14 @@ VALUES ('UTP0140516', 'Jesús Antonio', 'Mena', 'De la rosa', 'Hombre', '21', 'u
 -- -----------------------------------------------------
 -- Table `sistemacontrolcovid`.`sintomas`
 -- -----------------------------------------------------
-INSERT INTO `sintomas` (`id_Sintoma`, `nombreSintomas`) 
+INSERT INTO `Sintomas` (`id_Sintoma`, `nombreSintomas`) 
 VALUES (NULL, '[\"Contacto con una persona contagiada por COVID\", \"Ojos irritados\", \"Escalofríos\"]'),
 (NULL, '[\"Ninguna de las anteriores\"]');
 
 -- -----------------------------------------------------
 -- Table `sistemacontrolcovid`.`statuscovid`
 -- -----------------------------------------------------
-INSERT INTO `statuscovid` (`_statusCovid`, `temperatura`, `fecha`, `hora`, `fkpersona`, `fksintomas`) 
+INSERT INTO `statusCovid` (`_statusCovid`, `temperatura`, `fecha`, `hora`, `fkpersona`, `fksintomas`) 
 VALUES (NULL, '46.5', '2022-01-29', '07:13:00', 'UTP0140516', '1'),
 (NULL, '48.5', '2022-01-29', '15:12:28', 'UTP0006096', '2');
 -- -----------------------------------------------------
