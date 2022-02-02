@@ -2,7 +2,7 @@ const mysqlConnection = require('../config/database');
 
 
 const getStatusCovid = (result) => {
-    mysqlConnection.query('SELECT * FROM statuscovid AS C INNER JOIN sintomas AS S ON(c.fksintomas = S.id_Sintoma) INNER JOIN persona AS P ON (C.fkpersona = P.matricula)', (err, rows, fields) => {
+    mysqlConnection.query('SELECT * FROM statusCovid AS c INNER JOIN Sintomas AS s ON(c.fksintomas = s.id_Sintoma) INNER JOIN persona AS p ON (c.fkpersona = p.matricula)', (err, rows, fields) => {
         if (!err) {
             const sintomas =  rows.map(row => {
                 return {
