@@ -4,15 +4,15 @@ const mysqlConnection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "kraid",
-  multipleStatements: true,
+  database: "sistemacontrolcovid",
+  multipleStatements: true
 });
 
 mysqlConnection.connect(function (err) {
   if (err) {
     throw err
   } else {
-    console.log('db is connected')
+    console.log('base de datos conectada')
   }
 })
 
