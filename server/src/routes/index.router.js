@@ -1,10 +1,12 @@
 const { Router } =  require('express');
 const router = Router();
-const { getStatusCovidController } = require('../controllers/statusCovid.controller');
+const { getStatusCovidController, createBackupController } = require('../controllers/statusCovid.controller');
+
 
 
 
 router.get('/api/covid', getStatusCovidController );
+router.get('/api/backup', createBackupController );
 
 
 
