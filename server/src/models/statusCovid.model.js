@@ -2,7 +2,7 @@ const mysqlConnection = require('../config/database');
 
 const getStatusCovid = async (result) => {
     try {
-        const [rows] = await (await mysqlConnection).execute('SELECT * FROM statusCovid AS c INNER JOIN sintomas AS s ON(c.fkSintomas = s._idSintoma) INNER JOIN persona AS p ON (c.fkPersona = p.matricula)');
+        const [rows] = await mysqlConnection.query('SELECT * FROM statusCovid AS c INNER JOIN sintomas AS s ON(c.fkSintomas = s._idSintoma) INNER JOIN persona AS p ON (c.fkPersona = p.matricula)');
         const sintomas = await rows.map(row => {
             return {
                 matricula: row.matricula,

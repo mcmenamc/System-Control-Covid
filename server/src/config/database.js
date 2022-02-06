@@ -1,41 +1,28 @@
-const mysql =  require('mysql2/promise');
+const mysql = require('mysql2');
+const colors = require('colors');
 
-// database Clever Cloud
-// const mysqlConnection = mysql.createConnection({
-//     host: 'bqrjcvonizewgi6t1wc0-mysql.services.clever-cloud.com',
-//     user: 'ufbphoazrmm2qlfp',
-//     password: 'tFr2f5kkpw2qjlbbOuzc',
-//     port: 3306,
-//     database: 'bqrjcvonizewgi6t1wc0',
-//     connectionLimit: 10,
-//     waitForConnections: true,
-//     queueLimit: 0,
-//     charset: 'utf8mb4',
-//     timezone: 'Z',
-//     dateStrings: true,
-//     typeCast: true,
-//     debug: false,
-//     multipleStatements: true
-//   });
-  
 // database localhost
-  const mysqlConnection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    port: 3306,
-    database: 'sistemacontrolcovid',
-    connectionLimit: 10,
-    waitForConnections: true,
-    queueLimit: 0,
-    charset: 'utf8mb4',
-    timezone: 'Z',
-    dateStrings: true,
-    typeCast: true,
-    debug: false,
-    multipleStatements: true
-  })
+const pol = mysql.createPool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  port: process.env.DB_PORT,
+  database: process.env.DB_NAME,
+  connectionLimit: 10,
+  waitForConnections: true,
+  queueLimit: 0,
+  charset: 'utf8mb4',
+  timezone: 'Z',
+  dateStrings: true,
+  typeCast: true,
+  debug: false,
+  multipleStatements: true,
+});
+
+const mysqlConnection = pol.promise();
 
 
 module.exports = mysqlConnection;
+
+
 
