@@ -1,8 +1,8 @@
--- MariaDB dump 10.19  Distrib 10.4.19-MariaDB, for Win64 (AMD64)
+-- MariaDB dump 10.19  Distrib 10.4.22-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: sistemacontrolcovid
 -- ------------------------------------------------------
--- Server version	10.4.19-MariaDB
+-- Server version	10.4.22-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -82,7 +82,7 @@ CREATE TABLE `persona` (
 
 LOCK TABLES `persona` WRITE;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
-INSERT INTO `persona` VALUES ('UTP0006096','Julio Andrei','Claudio','Dom├¡nguez','Hombre','22','utp0006096@alumno.utpuebla.edu.mx','https://sicea.utpuebla.edu.mx/control/fotos/aspirantes/6096.jpg','2225669899','5de6d27f6647d58bb624bd79ea4ed614099d028d4c84aec5b39d1b5b16ef719f',1,'2019-11-14',1),('UTP0140516','Jes├║s Antonio','Mena','De la rosa','Hombre','21','utp0140516@alumno.utpuebla.edu.mx','https://sicea.utpuebla.edu.mx/control/fotos/aspirantes/140516.jpg','2213425514','2d07d76e8d3767333d91aa48468876be948fafb7d818eb6c3e9248d4181552ea',1,'2019-11-14',2);
+INSERT INTO `persona` VALUES ('UTP0006096','Julio Andrei','Claudio','Domínguez','Hombre','22','utp0006096@alumno.utpuebla.edu.mx','https://sicea.utpuebla.edu.mx/control/fotos/aspirantes/6096.jpg','2225669899','5de6d27f6647d58bb624bd79ea4ed614099d028d4c84aec5b39d1b5b16ef719f',1,'2019-11-14',1),('UTP0140516','Jesús Antonio','Mena','De la rosa','Hombre','21','utp0140516@alumno.utpuebla.edu.mx','https://sicea.utpuebla.edu.mx/control/fotos/aspirantes/140516.jpg','2213425514','2d07d76e8d3767333d91aa48468876be948fafb7d818eb6c3e9248d4181552ea',1,'2019-11-14',2);
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,7 +106,7 @@ CREATE TABLE `sintomas` (
 
 LOCK TABLES `sintomas` WRITE;
 /*!40000 ALTER TABLE `sintomas` DISABLE KEYS */;
-INSERT INTO `sintomas` VALUES (1,'[\"Contacto con una persona contagiada por COVID\", \"Ojos irritados\", \"Escalofr├¡os\"]'),(2,'[\"Ninguna de las anteriores\"]');
+INSERT INTO `sintomas` VALUES (1,'[\"Contacto con una persona contagiada por COVID\", \"Ojos irritados\", \"Escalofríos\"]'),(2,'[\"Ninguna de las anteriores\"]');
 /*!40000 ALTER TABLE `sintomas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -199,4 +199,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-04 21:31:05
+-- Dump completed on 2022-02-06 19:20:44

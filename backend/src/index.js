@@ -8,7 +8,7 @@ const app = express(); // inicializar express
 
 // setting environment variables
 require('dotenv').config({
-    path: `${process.env.NODE_ENV === 'development' ? path.join(__dirname, '../../.env.development') : path.join(__dirname, '../../.env.production')}`,
+    path: `${process.env.NODE_ENV === 'development' ? path.join(__dirname, './.env.development') : path.join(__dirname, './.env.production')}`,
 });
 app.set('port', process.env.PORT);
 
@@ -19,7 +19,9 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use(require('./routes/index.router'));
+// app.use(require('./routes/index.router'));
+app.use('/api', require('./routes/index.router'))
+
 
 // Middlewares para Vue.js router modo history
 

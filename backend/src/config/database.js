@@ -1,7 +1,7 @@
 const mysql = require('mysql2');
 const colors = require('colors');
 
-// database localhost
+// database 
 const pol = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,

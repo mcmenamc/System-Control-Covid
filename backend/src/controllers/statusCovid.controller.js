@@ -1,5 +1,4 @@
-const { getStatusCovid } = require('../models/statusCovid.model');
-const { createdBackup } = require('../models/backupdb.models');
+const { getStatusCovid,getStatuCovid } = require('../models/statusCovid.model');
 
 
 const getStatusCovidController = async (req, res) => {
@@ -17,8 +16,10 @@ const getStatusCovidController = async (req, res) => {
         }
     });
 };
-const createBackupController = async (req, res) => {
-    await createdBackup((err, results) => {
+
+const getStatuCovidController = async (req, res) => {
+    const params = req.params;
+    await getStatuCovid(params, (err, results) => {
         if (err) {
             res.json({
                 data: false,
@@ -30,7 +31,8 @@ const createBackupController = async (req, res) => {
                 results
             }).status(200);
         }
-    });
+    }
+    );
 };
 
 
@@ -38,5 +40,5 @@ const createBackupController = async (req, res) => {
 
 module.exports = {
     getStatusCovidController,
-    createBackupController
+    getStatuCovidController
 };

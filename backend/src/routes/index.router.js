@@ -1,13 +1,20 @@
-const { Router } =  require('express');
-const router = Router();
-const { getStatusCovidController, createBackupController } = require('../controllers/statusCovid.controller');
+const {Router} = require('express')
+const router = Router()
+const fs = require('fs')
 
+// No vover esta estructura de codigo, ya que funcionamiento del router
+const pathRouter = `${__dirname}`
 
+const removeExtension = (fileName) => {
+    return fileName.split('.').shift()
+}
+fs.readdirSync(pathRouter).filter((file) => {
+    const fileWithOutExt = removeExtension(file)
+    const skip = ['index'].includes(fileWithOutExt)
+    if (!skip) {
+        router.use(`/${fileWithOutExt}`, require(`./${fileWithOutExt}`))
+        console.log('CARGAR RUTA ---->', fileWithOutExt)
+    }
+})
 
-
-router.get('/api/covid', getStatusCovidController );
-router.get('/api/backup', createBackupController );
-
-
-
-module.exports = router;
+module.exports = router
