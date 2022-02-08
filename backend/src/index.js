@@ -7,9 +7,7 @@ const history = require('connect-history-api-fallback');
 const app = express(); // inicializar express
 
 // setting environment variables
-require('dotenv').config({
-    path: `${process.env.NODE_ENV === 'development' ? path.join(__dirname, './.env.development') : path.join(__dirname, './.env.production')}`,
-});
+require('dotenv').config();
 app.set('port', process.env.PORT);
 
 // Middlewares

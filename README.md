@@ -1,6 +1,6 @@
 # Este proyecto para su ejecución deberá realizarse algunas configuraciones
 
-## Configuracion del proyecto
+## Configuracion del proyecto del lado client 
 ```
     cd
 ```
