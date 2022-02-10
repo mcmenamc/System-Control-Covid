@@ -14,3 +14,8 @@ npm run serve
 ```
 npm run build
 ```
+
+### Base de datos ejecutar
+```
+mysql -u root -p --default-character-set=utf8mb4 < ""
+```

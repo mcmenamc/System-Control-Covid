@@ -18,6 +18,7 @@ const getStatusCovid = async (result) => {
                 fechaIngreso: row.fechaIngreso,
             };
         });
+        
         result(null, sintomas);
     } catch (error) {
         result(error, null);
