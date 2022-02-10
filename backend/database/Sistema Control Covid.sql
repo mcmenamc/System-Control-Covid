@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema sistemacontrolcovid
+-- Schema by1k0q2edmxuyzinpwft
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema sistemacontrolcovid
+-- Schema by1k0q2edmxuyzinpwft
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `sistemacontrolcovid` ;
-USE `sistemacontrolcovid` ;
+-- CREATE SCHEMA IF NOT EXISTS `by1k0q2edmxuyzinpwft` ;
+-- USE `by1k0q2edmxuyzinpwft` ;
 
 -- -----------------------------------------------------
--- Table `sistemacontrolcovid`.`personas`
+-- Table `by1k0q2edmxuyzinpwft`.`personas`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistemacontrolcovid`.`personas` (
+CREATE TABLE IF NOT EXISTS `by1k0q2edmxuyzinpwft`.`personas` (
   `_idPersona` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
   `apellidoP` VARCHAR(45) NOT NULL,
@@ -32,9 +32,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistemacontrolcovid`.`accesos`
+-- Table `by1k0q2edmxuyzinpwft`.`accesos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistemacontrolcovid`.`accesos` (
+CREATE TABLE IF NOT EXISTS `by1k0q2edmxuyzinpwft`.`accesos` (
   `_idAcceso` INT NOT NULL AUTO_INCREMENT,
   `fecha` DATE NOT NULL,
   `entradas` JSON NOT NULL,
@@ -44,16 +44,16 @@ CREATE TABLE IF NOT EXISTS `sistemacontrolcovid`.`accesos` (
   INDEX `fk_acceso_persona1_idx` (`fkPersona` ASC) ,
   CONSTRAINT `fk_acceso_persona1`
     FOREIGN KEY (`fkPersona`)
-    REFERENCES `sistemacontrolcovid`.`personas` (`_idPersona`)
+    REFERENCES `by1k0q2edmxuyzinpwft`.`personas` (`_idPersona`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistemacontrolcovid`.`sintomas`
+-- Table `by1k0q2edmxuyzinpwft`.`sintomas`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistemacontrolcovid`.`sintomas` (
+CREATE TABLE IF NOT EXISTS `by1k0q2edmxuyzinpwft`.`sintomas` (
   `_idSintoma` INT NOT NULL AUTO_INCREMENT,
   `nombreSintomas` JSON NOT NULL,
   PRIMARY KEY (`_idSintoma`))
@@ -61,9 +61,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistemacontrolcovid`.`statusCovid`
+-- Table `by1k0q2edmxuyzinpwft`.`statusCovid`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistemacontrolcovid`.`statusCovid` (
+CREATE TABLE IF NOT EXISTS `by1k0q2edmxuyzinpwft`.`statusCovid` (
   `_idStatusCovid` INT NOT NULL AUTO_INCREMENT,
   `temperatura` DECIMAL(5,1) NOT NULL,
   `fecha` DATE NOT NULL,
@@ -75,21 +75,21 @@ CREATE TABLE IF NOT EXISTS `sistemacontrolcovid`.`statusCovid` (
   INDEX `fk_statusCovid_persona1_idx` (`fkPersona` ASC) ,
   CONSTRAINT `fk_statusCovid_sintomas1`
     FOREIGN KEY (`fkSintomas`)
-    REFERENCES `sistemacontrolcovid`.`sintomas` (`_idSintoma`)
+    REFERENCES `by1k0q2edmxuyzinpwft`.`sintomas` (`_idSintoma`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_statusCovid_persona1`
     FOREIGN KEY (`fkPersona`)
-    REFERENCES `sistemacontrolcovid`.`personas` (`_idPersona`)
+    REFERENCES `by1k0q2edmxuyzinpwft`.`personas` (`_idPersona`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistemacontrolcovid`.`tipoEmpleado`
+-- Table `by1k0q2edmxuyzinpwft`.`tipoEmpleado`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistemacontrolcovid`.`tipoEmpleado` (
+CREATE TABLE IF NOT EXISTS `by1k0q2edmxuyzinpwft`.`tipoEmpleado` (
   `_idTipos` INT NOT NULL AUTO_INCREMENT,
   `tipoEmpleado` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`_idTipos`))
@@ -97,9 +97,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistemacontrolcovid`.`visitantes`
+-- Table `by1k0q2edmxuyzinpwft`.`visitantes`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistemacontrolcovid`.`visitantes` (
+CREATE TABLE IF NOT EXISTS `by1k0q2edmxuyzinpwft`.`visitantes` (
   `_idVisitante` INT NOT NULL AUTO_INCREMENT,
   `destino` VARCHAR(45) NOT NULL,
   `observaciones` VARCHAR(45) NULL,
@@ -108,16 +108,16 @@ CREATE TABLE IF NOT EXISTS `sistemacontrolcovid`.`visitantes` (
   INDEX `fk_visitantes_persona1_idx` (`fkPersona` ASC) ,
   CONSTRAINT `fk_visitantes_persona1`
     FOREIGN KEY (`fkPersona`)
-    REFERENCES `sistemacontrolcovid`.`personas` (`_idPersona`)
+    REFERENCES `by1k0q2edmxuyzinpwft`.`personas` (`_idPersona`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistemacontrolcovid`.`estudiantes`
+-- Table `by1k0q2edmxuyzinpwft`.`estudiantes`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistemacontrolcovid`.`estudiantes` (
+CREATE TABLE IF NOT EXISTS `by1k0q2edmxuyzinpwft`.`estudiantes` (
   `matricula` VARCHAR(20) NOT NULL,
   `fotoUrl` TEXT NOT NULL,
   `academia` VARCHAR(45) NOT NULL,
@@ -132,16 +132,16 @@ CREATE TABLE IF NOT EXISTS `sistemacontrolcovid`.`estudiantes` (
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) ,
   CONSTRAINT `fk_estudiantes_persona1`
     FOREIGN KEY (`fkPersona`)
-    REFERENCES `sistemacontrolcovid`.`personas` (`_idPersona`)
+    REFERENCES `by1k0q2edmxuyzinpwft`.`personas` (`_idPersona`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistemacontrolcovid`.`empleados`
+-- Table `by1k0q2edmxuyzinpwft`.`empleados`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistemacontrolcovid`.`empleados` (
+CREATE TABLE IF NOT EXISTS `by1k0q2edmxuyzinpwft`.`empleados` (
   `matricula` VARCHAR(45) NOT NULL,
   `fotoUrl` TEXT NOT NULL,
   `email` VARCHAR(55) NOT NULL,
@@ -154,12 +154,12 @@ CREATE TABLE IF NOT EXISTS `sistemacontrolcovid`.`empleados` (
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) ,
   CONSTRAINT `fk_empleados_tipoEmpleado1`
     FOREIGN KEY (`fkTipoEmpleado`)
-    REFERENCES `sistemacontrolcovid`.`tipoEmpleado` (`_idTipos`)
+    REFERENCES `by1k0q2edmxuyzinpwft`.`tipoEmpleado` (`_idTipos`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_empleados_persona1`
     FOREIGN KEY (`fkPersona`)
-    REFERENCES `sistemacontrolcovid`.`personas` (`_idPersona`)
+    REFERENCES `by1k0q2edmxuyzinpwft`.`personas` (`_idPersona`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -174,12 +174,12 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Table `sistemacontrolcovid`.`tipoEmpleado`
+-- Table `by1k0q2edmxuyzinpwft`.`tipoEmpleado`
 -- -----------------------------------------------------
 INSERT INTO `tipoEmpleado` (`_idTipos`, `tipoEmpleado`) VALUES (NULL, 'Administrador'), (NULL, 'Docente');
 
 -- -----------------------------------------------------
--- Table `sistemacontrolcovid`.`personas`
+-- Table `by1k0q2edmxuyzinpwft`.`personas`
 -- -----------------------------------------------------
 INSERT INTO `personas` (`_idPersona`, `nombre`, `apellidoP`, `apellidoM`, `sexo`, `fechaNacimiento`) 
 VALUES (NULL, 'Jesus Antonio', 'Mena', 'De la rosa', 'Hombre', '2000-10-01'), 
@@ -194,7 +194,7 @@ VALUES (NULL, 'Jesus Antonio', 'Mena', 'De la rosa', 'Hombre', '2000-10-01'),
   (NULL, 'Abraham', 'Padilla', 'Vargas', 'Hombre', '2001-05-20');
 
 -- -----------------------------------------------------
--- Table `sistemacontrolcovid`.`estudiantes`
+-- Table `by1k0q2edmxuyzinpwft`.`estudiantes`
 -- -----------------------------------------------------
 INSERT INTO `estudiantes` (`matricula`, `fotoUrl`, `academia`, `area`, `cuatrimestre`, `status`, `email`, `contrasena`, `fkPersona`) 
 VALUES ('UTP0140516', 'https://firebasestorage.googleapis.com/v0/b/sistema-control-covid.appspot.com/o/fotos%2FAlumnos%2F140516.jpg?alt=media&token=567ae47b-5692-4a9a-a8e9-663caf2888ff', 'Tecnologías de la información', 'Desarrollo de Software Multiplataforma', '8', '1', 'utp0140516@alumno.utpuebla.edu.mx', 'eb56f6a061ff2fb9041c99e02390969c9212a3b329f975a53f5d9cf58c238b93', '1'), 
@@ -204,14 +204,14 @@ VALUES ('UTP0140516', 'https://firebasestorage.googleapis.com/v0/b/sistema-contr
 ('UTP025354', 'https://firebasestorage.googleapis.com/v0/b/sistema-control-covid.appspot.com/o/fotos%2FAlumnos%2F25354.jfif?alt=media&token=4302ba2e-9309-45c9-8cfa-15fb265de64b', 'Negocios', 'Capital Humano', '6', '1', 'utp025354@alumno.utpuebla.edu.mx', '55f129ee073e770516f3301d2e413b97fcb49c5f40bc21faeed58a5febfb662c', '10');
 
 -- -----------------------------------------------------
--- Table `sistemacontrolcovid`.`empleados`
+-- Table `by1k0q2edmxuyzinpwft`.`empleados`
 -- -----------------------------------------------------
 INSERT INTO `empleados` (`matricula`, `fotoUrl`, `email`, `contrasena`, `fkPersona`, `fkTipoEmpleado`) 
 VALUES ('UTP1', 'https://firebasestorage.googleapis.com/v0/b/sistema-control-covid.appspot.com/o/fotos%2FEmpleados%2F1.webp?alt=media&token=0d6ea3f7-145b-4e5c-9233-297cd4c10c0e','arturo.romero@utpuebla.edu.mx', '8a67b9a136520edf23e38d1883352892d7fb9fc78d18e46e5c57c51d62086a08', '2', '2'), 
 ('UTP30', 'https://firebasestorage.googleapis.com/v0/b/sistema-control-covid.appspot.com/o/fotos%2FEmpleados%2F30.jpg?alt=media&token=1520b29b-d39b-4075-85b4-6730a2c376ae', 'fabiano.rivera@utpuebla.edu.mx', 'ced34a01165563b096d2644ebaeddecafe0e1d49f3b71ce49e4cc608d1723a0c', '3', '1');
 
 -- -----------------------------------------------------
--- Table `sistemacontrolcovid`.`visitantes`
+-- Table `by1k0q2edmxuyzinpwft`.`visitantes`
 -- -----------------------------------------------------
 INSERT INTO `visitantes` (`_idVisitante`, `destino`, `observaciones`, `fkPersona`) 
 VALUES (NULL, 'SICE', 'Información de inscripciones ', '4'), 
@@ -219,7 +219,7 @@ VALUES (NULL, 'SICE', 'Información de inscripciones ', '4'),
   (NULL, 'SICE', NULL, '6');
 
 -- -----------------------------------------------------
--- Table `sistemacontrolcovid`.`accesos`
+-- Table `by1k0q2edmxuyzinpwft`.`accesos`
 -- -----------------------------------------------------
 INSERT INTO `accesos` (`_idAcceso`, `fecha`, `entradas`, `salidas`, `fkPersona`) 
 VALUES (NULL, '2022-02-10', '[\r\n    {\r\n        \"hora\": \"07:53:05\",\r\n        \"entrada\": \"Principal\"\r\n    },\r\n    {\r\n        \"hora\": \"10:20:03\",\r\n        \"entrada\": \"Principal\"\r\n    },\r\n    {\r\n        \"hora\": \"10:20:03\",\r\n        \"entrada\": \"Tercera\"\r\n    }\r\n]', '[\r\n    {\r\n        \"hora\": \"10:00\",\r\n        \"salida\": \"Principal\"\r\n    },\r\n    {\r\n        \"hora\": \"10:05\",\r\n        \"salida\": \"Segunda\"\r\n    },\r\n    {\r\n        \"hora\": \"12:59\",\r\n        \"salida\": \"Tercera\"\r\n    }\r\n]', '1'), 
@@ -227,7 +227,7 @@ VALUES (NULL, '2022-02-10', '[\r\n    {\r\n        \"hora\": \"07:53:05\",\r\n  
   (NULL, '2022-02-10', '[\r\n    {\r\n        \"hora\": \"09:20:03\",\r\n        \"entrada\": \"Principal\"\r\n    }\r\n]\r\n', '[\r\n    {\r\n        \"hora\": \"09:20:03\",\r\n        \"salida\": \"Principal\"\r\n    }\r\n]\r\n', '5'), 
   (NULL, '2022-02-10', '[\r\n    {\r\n        \"hora\": \"07:05:03\",\r\n        \"entrada\": \"Principal\"\r\n    }\r\n]\r\n\r\n', NULL, '9');
 -- -----------------------------------------------------
--- Table `sistemacontrolcovid`.`sintomas`
+-- Table `by1k0q2edmxuyzinpwft`.`sintomas`
 -- -----------------------------------------------------
 
 INSERT INTO `sintomas` (`_idSintoma`, `nombreSintomas`) 
@@ -235,9 +235,9 @@ VALUES (NULL, '[\"Pérdida del olfato\", \"Pérdida del gusto\", \"Contacto con 
   (NULL, '[\"Ninguna de las anteriores\"]'), 
   (NULL, '[\"Fiebre\", \"Tos\"]');
 -- -----------------------------------------------------
--- Table `sistemacontrolcovid`.`statuscovid`
+-- Table `by1k0q2edmxuyzinpwft`.`statuscovid`
 -- -----------------------------------------------------
-INSERT INTO `statuscovid` (`_idStatusCovid`, `temperatura`, `fecha`, `hora`, `fkSintomas`, `fkPersona`) 
+INSERT INTO `statusCovid` (`_idStatusCovid`, `temperatura`, `fecha`, `hora`, `fkSintomas`, `fkPersona`) 
 VALUES (NULL, '46.5', '2022-02-10', '07:13:00', '3', '1'), 
   (NULL, '47.5', '2022-02-10', '09:15:05', '1', '9'), 
   (NULL, '46.2', '2022-02-11', '09:15:05', '2', '10');
@@ -254,7 +254,7 @@ VALUES (NULL, '46.5', '2022-02-10', '07:13:00', '3', '1'),
 -- ----------Update de datos-----------------------
 -- -----------------------------------------------------
 -- -----------------------------------------------------
--- Table `sistemacontrolcovid`.`accesos`
+-- Table `by1k0q2edmxuyzinpwft`.`accesos`
 -- -----------------------------------------------------
 
 -- UPDATE `accesos` SET `salidas` = NULL 
