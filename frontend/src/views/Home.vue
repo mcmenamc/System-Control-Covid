@@ -69,7 +69,7 @@
                   </p></v-col
                 >
                 <v-col cols="auto" sm="4" class="text-one rojo-text txt-letters"
-                  >RECOVERED
+                  >RECUPERADOS
                   <p class="grey--text">
                     {{ covid.recovered.toLocaleString() }}
                   </p></v-col
@@ -84,7 +84,7 @@
       </v-row>
     </v-img>
     <v-row class="my-10 d-flex justify-center white">
-      <v-col cols="12" md="11" lg="9" xl="7">
+      <v-col cols="12" md="11" lg="9" xl="8">
         <v-row class="my-16">
           <v-col cols="7" class="error"> </v-col>
           <v-col cols="5" class="info"> </v-col>

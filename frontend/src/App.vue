@@ -8,7 +8,13 @@
       class="d-flex justify-center"
     >
       <!-- <v-toolbar-side-icon class="mr-5"> -->
-      <v-img width="180" class="mr-5" src="@/assets/images/logo.png"></v-img>
+
+      <v-img
+        width="180"
+        @click="inicio()"
+        class="mr-5 poiter"
+        src="@/assets/images/logo.png"
+      ></v-img>
       <!-- </v-toolbar-side-icon>   -->
       <v-btn
         class="mr-2 custom-transform-class text-none text-md-h6"
@@ -97,7 +103,7 @@ export default {
   data: () => ({
     links: [
       {
-        name: "Home",
+        name: "Inicio",
         url: "/",
         btn: true,
         color: "primary",
@@ -156,21 +162,24 @@ export default {
         this.bgcolor = "transparent";
       }
     },
+    inicio() {
+      this.$router.push("/");
+    },
   },
 };
 </script>
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap");
 .text-one {
   font-family: "Oswald", sans-serif;
 }
 .text-sub {
   font-family: "Roboto", sans-serif;
 }
-.text-normal{
-  font-family: 'Mukta', sans-serif;
+.text-normal {
+  font-family: "Mukta", sans-serif;
 }
 .rojo-text {
   color: #ff8086;
@@ -188,5 +197,8 @@ html::-webkit-scrollbar-thumb {
 }
 html::-webkit-scrollbar-thumb:hover {
   background-color: rgba(105, 105, 105, 0.7);
+}
+.poiter:hover {
+  cursor: pointer;
 }
 </style>
