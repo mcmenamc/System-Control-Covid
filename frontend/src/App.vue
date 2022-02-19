@@ -39,7 +39,7 @@
         <v-col cols="5" sm="4" class="d-flex justify-start">
           <v-img width="150" src="@/assets/images/logo.png"></v-img>
         </v-col>
-        <v-col cols="5" sm="4" class="d-flex justify-end">
+        <v-col cols="5" sm="4" class="d-flex justify-end ml-5">
           <v-btn @click.stop="drawer = !drawer" icon>
             <v-icon>{{ `fas ${drawer ? "fa-times" : "fa-bars"}` }}</v-icon>
           </v-btn>
@@ -76,12 +76,13 @@
             {{ links[4].name }}
           </v-btn>
         </div>
-        <div class="pa-2">
+        <div :class="`pa-2 `">
           <v-btn :to="links[5].url" :color="links[5].color" block>
             {{ links[5].name }}
           </v-btn>
         </div>
       </template>
+    
     </v-navigation-drawer>
 
     <v-main>
@@ -90,8 +91,22 @@
       </v-container>
     </v-main>
 
-    <v-footer>
-      <span>footer</span>
+    <v-footer color="primary lighten-1" padless>
+      <v-row justify="center" no-gutters>
+        <v-btn
+          v-for="link in links"
+          :key="link.id"
+          color="white"
+          text
+          rounded
+          class="my-2"
+        >
+          {{ link.name }}
+        </v-btn>
+        <v-col class="primary lighten-2 py-4 text-center white--text" cols="12">
+          {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+        </v-col>
+      </v-row>
     </v-footer>
   </v-app>
 </template>
@@ -163,7 +178,9 @@ export default {
       }
     },
     inicio() {
-      this.$router.push("/");
+      if (this.$router.currentRoute.path !== "/") {
+        this.$router.push("/");
+      }
     },
   },
 };

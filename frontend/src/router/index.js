@@ -21,7 +21,18 @@ const routes = [
   {
     path: '*',
     name: 'NotFound',
-    component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue')
+    component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue'),
+    prompt: {
+      message: 'Page not found',
+    },  
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import(/* webpackChunkName: "Login" */ '../views/Login.vue'),
+    prompt: {
+      message: 'Page not found',
+    },  
   }
 ]
 
