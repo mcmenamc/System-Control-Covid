@@ -24,7 +24,7 @@ div {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 78vh;
+  height: 82vh;
   justify-content: center;
   text-align: center;
 }

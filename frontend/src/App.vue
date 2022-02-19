@@ -36,10 +36,10 @@
       class=""
     >
       <v-row class="flex justify-center align-center">
-        <v-col cols="5" sm="4" class="d-flex justify-start">
+        <v-col cols="6" sm="4" class="d-flex justify-start">
           <v-img width="150" src="@/assets/images/logo.png"></v-img>
         </v-col>
-        <v-col cols="5" sm="4" class="d-flex justify-end ml-5">
+        <v-col cols="6" sm="4" class="d-flex justify-end ">
           <v-btn @click.stop="drawer = !drawer" icon>
             <v-icon>{{ `fas ${drawer ? "fa-times" : "fa-bars"}` }}</v-icon>
           </v-btn>

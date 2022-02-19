@@ -3,7 +3,7 @@ const mysqlConnection = require('../config/database');
 // Obtener todos los registros de la tabla Persona
 const getpersonas = async (result) => {
     try {
-        const [rows] = await mysqlConnection.query('SELECT * FROM persona');
+        const [rows] = await mysqlConnection.query('SELECT * FROM personas');
         const personas = rows.map(row => {
             return {
                 matricula: row.matricula,
@@ -16,7 +16,7 @@ const getpersonas = async (result) => {
                 fechaIngreso: row.fechaIngreso
             };
         });
-        result(null, personas);
+        result(null, rows);
     } catch (error) {
         result(error, null);
     }
@@ -24,7 +24,7 @@ const getpersonas = async (result) => {
 
 const getPersona = async (matricula, result) => {
     try {
-        const [rows] = await mysqlConnection.query('SELECT * FROM persona WHERE matricula = ?', [matricula]);
+        const [rows] = await mysqlConnection.query('SELECT * FROM personas WHERE _idPersona = ?', [matricula]);
         if (rows.length > 0) {
             const persona = await {
                 matricula: rows[0].matricula,
@@ -36,7 +36,7 @@ const getPersona = async (matricula, result) => {
                 telefono: rows[0].telefonoPersona,
                 fechaIngreso: rows[0].fechaIngreso
             };
-            result(null, persona);
+            result(null, rows);
         } else {
             result(null, []);
         }
