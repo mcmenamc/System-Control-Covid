@@ -1,9 +1,10 @@
 const mysqlConnection = require('../config/database');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const loginUser = async (data, result) => {
     try {
-        const { email, contrasena } = data; 
+        const { email, contrasena } = data;
         // bcrypt.genSalt(10, function(err, salt) {
         //     bcrypt.hash(contrasena, salt, function(err, hash) {
         //         console.log(hash);
@@ -13,7 +14,13 @@ const loginUser = async (data, result) => {
         if (rows.length > 0) {
             bcrypt.compare(contrasena, rows[0].contrasena, (err, res) => {
                 if (res) {
-                    result(null, rows[0].matricula);
+                    const token = jwt.sign({
+                        matricula: rows[0].matricula,
+                    }, process.env.TOKEN_SECRET)
+                    result(null, {
+                        matricula: rows[0].matricula,
+                        token
+                    })
                 } else {
                     result(null, "La contraseña es incorrecta");
                 }
