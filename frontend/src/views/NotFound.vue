@@ -8,7 +8,7 @@
     <v-btn to="/" color="primary">
       <v-icon class="mr-3">fas fa-hand-point-right</v-icon>Regresar al inicio
     </v-btn>
-    {{$router.params}}
+    
   </div>
 </template>
 

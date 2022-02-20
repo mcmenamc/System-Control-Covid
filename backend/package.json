@@ -4,20 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "set NODE_ENV=development&&nodemon src/index.js&&--exec babel-node",
-    "start": "babel-node src/index.js --exec"
+    "build": "babel src/index.js --out-dir build",
+    "dev": "nodemon src/index.js --exac babel-node",
+    "start": "node build/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.15"
-  },
-  "dependencies": {
     "@babel/cli": "^7.17.0",
     "@babel/core": "^7.17.0",
     "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.16.11",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "connect-history-api-fallback": "^1.6.0",
