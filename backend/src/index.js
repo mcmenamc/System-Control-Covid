@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 // app.use(require('./routes/index.router'));
-app.use('/api', require('./routes/index.router'))
+app.use('/api', require('./routes/index'))
 
 
 // Middlewares para Vue.js router modo history
