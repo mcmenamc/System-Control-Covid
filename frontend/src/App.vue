@@ -39,7 +39,7 @@
         <v-col cols="6" sm="4" class="d-flex justify-start">
           <v-img width="150" src="@/assets/images/logo.png"></v-img>
         </v-col>
-        <v-col cols="6" sm="4" class="d-flex justify-end ">
+        <v-col cols="6" sm="4" class="d-flex justify-end">
           <v-btn @click.stop="drawer = !drawer" icon>
             <v-icon>{{ `fas ${drawer ? "fa-times" : "fa-bars"}` }}</v-icon>
           </v-btn>
@@ -82,12 +82,17 @@
           </v-btn>
         </div>
       </template>
-    
     </v-navigation-drawer>
 
     <v-main>
       <v-container fluid>
-        <router-view />
+        <XyzTransition
+          appear
+          xyz="fade in-left-100% out-right-100%"
+          mode="out-in"
+        >
+          <router-view />
+        </XyzTransition>
       </v-container>
     </v-main>
 

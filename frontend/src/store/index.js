@@ -5,6 +5,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    user: {
+      id: '',
+      name: '',
+      email: '',
+      role: '',
+      token: '',
+      avatar: '',
+      created_at: '',
+      deleted_at: ''
+    }
   },
   mutations: {
   },

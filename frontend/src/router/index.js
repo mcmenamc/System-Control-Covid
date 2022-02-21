@@ -6,6 +6,21 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/user/:id',
+    component: () => import('../views/user/Home.user.vue'),
+    meta:{
+      requiresAuth: true
+    },
+    children: [
+      {
+        path: '/',
+        name: 'User',
+        component: () => import('../views/user/Status.user.vue'),
+        
+      },
+    ]
+  },
+  {
     path: '/',
     name: 'Home',
     component: Home
@@ -36,10 +51,14 @@ const routes = [
   }
 ]
 
+
+
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
 })
+
+
 
 export default router

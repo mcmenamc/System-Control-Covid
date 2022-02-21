@@ -6,10 +6,10 @@
     >
       <v-row
         :class="`img-fondo d-flex flex-wrap justify-center ${
-          $vuetify.breakpoint.mobile ? 'mt-4' : 'mt-16'
+          $vuetify.breakpoint.mobile ? 'my-4' : 'my-12'
         }`"
       >
-        <v-col cols="12" md="11" lg="9" xl="8">
+        <v-col cols="12" md="11" lg="9" xl="7">
           <v-row class="align-center">
             <v-col md="6" class="">
               <v-row align="center" justify="center">
