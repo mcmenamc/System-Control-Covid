@@ -95,36 +95,37 @@
 </template>
 
 <script>
-export default {
-  name: "Home",
-  data: () => ({
-    covid: {
-      cases: 0,
-      deaths: 0,
-      recovered: 0,
+  export default {
+    name: "Home",
+    data: () => ({
+      covid: {
+        cases: 0,
+        deaths: 0,
+        recovered: 0,
+      },
+      dialog: false,
+    }),
+    created() {
+      this.getCovid();
     },
-    dialog: false,
-  }),
-  created() {
-    this.getCovid();
-  },
-  methods: {
-    getCovid() {
-      this.axios
-        .get("https://coronavirus-19-api.herokuapp.com/all")
-        .then((response) => {
-          this.covid = response.data;
-        });
+    methods: {
+      getCovid() {
+        this.axios
+          .get("https://coronavirus-19-api.herokuapp.com/all")
+          .then((response) => {
+            this.covid = response.data;
+          });
+      },
     },
-  },
-};
+  };
 </script>
+
 <style scoped>
-.txt-size {
-  font-size: 38px;
-  color: rgb(114, 114, 114);
-}
-.txt-letters {
-  font-size: 27px;
-}
+  .txt-size {
+    font-size: 38px;
+    color: rgb(114, 114, 114);
+  }
+  .txt-letters {
+    font-size: 27px;
+  }
 </style>

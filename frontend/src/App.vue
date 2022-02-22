@@ -7,15 +7,12 @@
       :color="bgcolor"
       class="d-flex justify-center"
     >
-      <!-- <v-toolbar-side-icon class="mr-5"> -->
-
       <v-img
         width="180"
         @click="inicio()"
         class="mr-5 poiter"
         src="@/assets/images/logo.png"
       ></v-img>
-      <!-- </v-toolbar-side-icon>   -->
       <v-btn
         class="mr-2 custom-transform-class text-none text-md-h6"
         :text="link.btn"
@@ -28,6 +25,7 @@
         {{ link.name }}
       </v-btn>
     </v-app-bar>
+
     <v-app-bar
       elevation="0"
       v-if="$vuetify.breakpoint.smAndDown"
@@ -109,7 +107,8 @@
           {{ link.name }}
         </v-btn>
         <v-col class="primary lighten-2 py-4 text-center white--text" cols="12">
-          {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+          {{ new Date().getFullYear() }} —
+          <strong>Sistema Control Covid</strong>
         </v-col>
       </v-row>
     </v-footer>
@@ -191,36 +190,36 @@ export default {
 };
 </script>
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap");
-.text-one {
-  font-family: "Oswald", sans-serif;
-}
-.text-sub {
-  font-family: "Roboto", sans-serif;
-}
-.text-normal {
-  font-family: "Mukta", sans-serif;
-}
-.rojo-text {
-  color: #ff8086;
-}
-main {
-  background-color: #f6f8fe;
-}
-html::-webkit-scrollbar {
-  width: 8px;
-  background: #f0f0f0;
-}
-html::-webkit-scrollbar-thumb {
-  background-color: rgb(206, 206, 206);
-  border-radius: 10px;
-}
-html::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(105, 105, 105, 0.7);
-}
-.poiter:hover {
-  cursor: pointer;
-}
+  @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@900&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap");
+  .text-one {
+    font-family: "Oswald", sans-serif;
+  }
+  .text-sub {
+    font-family: "Roboto", sans-serif;
+  }
+  .text-normal {
+    font-family: "Mukta", sans-serif;
+  }
+  .rojo-text {
+    color: #ff8086;
+  }
+  main {
+    background-color: #f6f8fe;
+  }
+  html::-webkit-scrollbar {
+    width: 8px;
+    background: #f0f0f0;
+  }
+  html::-webkit-scrollbar-thumb {
+    background-color: rgb(206, 206, 206);
+    border-radius: 10px;
+  }
+  html::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(105, 105, 105, 0.7);
+  }
+  .poiter:hover {
+    cursor: pointer;
+  }
 </style>

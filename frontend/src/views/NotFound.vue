@@ -18,48 +18,48 @@ export default {};
 
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+  @import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
 
-div {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 82vh;
-  justify-content: center;
-  text-align: center;
-}
-h1 {
-  color: #3b3b3b;
-  font-size: 12.5rem;
-  letter-spacing: 0.1em;
-  margin: 0.025em 0;
-  text-shadow: 0.05em 0.05em 0 rgba(0, 0, 0, 0.25);
-  white-space: nowrap;
-}
-@media (max-width: 30rem) {
+  div {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 82vh;
+    justify-content: center;
+    text-align: center;
+  }
   h1 {
-    font-size: 8.5rem;
+    color: #3b3b3b;
+    font-size: 12.5rem;
+    letter-spacing: 0.1em;
+    margin: 0.025em 0;
+    text-shadow: 0.05em 0.05em 0 rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
   }
-}
-h1 > span {
-  animation: spooky 2s alternate infinite linear;
-  color: #528cce;
-  display: inline-block;
-}
-h2 {
-  color: #34363a;
-  margin-bottom: 0.4em;
-}
-p {
-  color: rgb(97, 97, 97);
-  margin-top: 0;
-}
-@keyframes spooky {
-  from {
-    transform: translatey(0.15em) scaley(0.95);
+  @media (max-width: 30rem) {
+    h1 {
+      font-size: 8.5rem;
+    }
   }
-  to {
-    transform: translatey(-0.15em);
+  h1 > span {
+    animation: spooky 2s alternate infinite linear;
+    color: #528cce;
+    display: inline-block;
   }
-}
+  h2 {
+    color: #34363a;
+    margin-bottom: 0.4em;
+  }
+  p {
+    color: rgb(97, 97, 97);
+    margin-top: 0;
+  }
+  @keyframes spooky {
+    from {
+      transform: translatey(0.15em) scaley(0.95);
+    }
+    to {
+      transform: translatey(-0.15em);
+    }
+  }
 </style>

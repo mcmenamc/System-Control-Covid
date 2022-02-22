@@ -114,73 +114,64 @@
 </template>
 
 <script>
-export default {
-  name: "Login",
-  data: () => ({
-    show: false,
-    login: {
-      email: "",
-      contrasena: "",
-    },
-    rules: {
-      required: (value) => !!value || "Requerido.",
-      // min: (v) => v.length >= 8 || "Min 8 caracteres.",
-      max: (v) => v.length <= 12 || "Max 12 caracteres.",
-      email: (b) =>
-        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(b) ||
-        "Correo no válido.",
-    },
-    items: [
-      {
-        src: "carousel-1.jpg",
+  export default {
+    name: "Login",
+    data: () => ({
+      show: false,
+      login: {
+        email: "",
+        contrasena: "",
       },
-      {
-        src: "carousel-2.jpg",
+      rules: {
+        required: (value) => !!value || "Requerido.",
+        min: (v) => v.length >= 8 || "Min 8 caracteres.",
+        max: (v) => v.length <= 12 || "Max 12 caracteres.",
+        email: (b) =>
+          /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(b) ||
+          "Correo no válido.",
       },
-      {
-        src: "carousel-3.jpg",
+      items: [
+        {
+          src: "carousel-1.jpg",
+        },
+        {
+          src: "carousel-2.jpg",
+        },
+        {
+          src: "carousel-3.jpg",
+        },
+        {
+          src: "carousel-4.jpg",
+        },
+      ],
+    }),
+    methods: {
+      validate() {
+        this.$refs.form.validate();
+        if (this.$refs.form.validate()) {
+          this.loginAuth();
+        }
       },
-      {
-        src: "carousel-4.jpg",
+      loginAuth() {
+        this.axios
+          .post("auth", this.login)
+          .then((response) => {
+            console.log(response.data);
+            if (response.data.data == true && response.data.results.token) {
+              console.log("login correcto");
+                this.$router.push('/');
+            } else {
+              this.$swal({
+                icon: "error",
+                title: "Oops...",
+                text: "Usuario o contraseña incorrectos",
+              });
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       },
-    ],
-  }),
-  methods: {
-    validate() {
-      this.$refs.form.validate();
-      if (this.$refs.form.validate()) {
-        // console.log("validado ahora vamos a loguear", this.login);
-        this.loginAuth();
-      }
     },
-    loginAuth() {
-      // consulta con axios
-      this.axios
-        .post("auth", this.login)
-        .then((response) => {
-          console.log(response.data);
-          // console.log(response.data.results.token);
-          if (response.data.data == true && response.data.results.token) {
-            console.log("login correcto");
-              this.$router.push('/');
-          } else {
-            // console.log("login incorrecto");
-            this.$swal({
-              icon: "error",
-              title: "Oops...",
-              text: "Usuario o contraseña incorrectos",
-            });
-          }
-          // if(response.data.status == 'success'){
-          //   this.$store.commit('setUser', response.data.user);
-          //   this.$store.commit('setToken', response.data.token);
-          //   this.$router.push('/');
-          // }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
-  },
-};
+  };
 </script>
