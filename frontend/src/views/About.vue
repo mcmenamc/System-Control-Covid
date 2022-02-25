@@ -1,27 +1,16 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <v-row class="d-flex justify-center">
+    <v-col sm="4" >
+      <LectorQR></LectorQR>
+    </v-col>
+  </v-row>
 </template>
 <script>
+import LectorQR from "../components/LectorQR";
 export default {
-  name: 'About',
-  data: () =>({
-
-  }),
-  created(){
-    this.listarNotas();
+  name: "About",
+  components: {
+    LectorQR,
   },
-  methods:{
-    listarNotas(){
-      this.axios.get('covid')
-      .then((response) => {
-        console.log(response.data)
-      })
-      .catch((e)=>{
-        console.log('error' + e);
-      })
-    }
-  }
-}
+};
 </script>
