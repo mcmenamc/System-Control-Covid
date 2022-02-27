@@ -8,7 +8,7 @@
         $vuetify.breakpoint.mobile ? 'my-5' : 'my-16'
       }`"
     >
-      <v-col cols="12" md="11" lg="9" xl="7">
+      <v-col cols="12" md="11" lg="9" xl="8">
         <v-row class="d-flex justify-center">
           <v-col cols="11" md="6" class="pa-0">
             <v-row>
@@ -120,7 +120,11 @@
 </template>
 
 <script>
+import Nprogress from "nprogress";
 export default {
+  async created() {
+    Nprogress.done();
+  },
   data: () => ({
     e6: 1,
     items: [

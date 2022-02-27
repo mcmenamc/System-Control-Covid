@@ -6,10 +6,10 @@
     >
       <v-row
         :class="`img-fondo d-flex flex-wrap justify-center ${
-          $vuetify.breakpoint.mobile ? 'my-4' : 'my-12'
+          $vuetify.breakpoint.mobile ? 'my-4' : 'my-16'
         }`"
       >
-        <v-col cols="12" md="11" lg="9" xl="7">
+        <v-col  cols="12" md="11" lg="9" xl="8">
           <v-row class="align-center">
             <v-col md="6" class="">
               <v-row align="center" justify="center">
@@ -28,20 +28,20 @@
                   </v-col>
                 </v-row>
                 <v-row class="d-flex justify-center">
-                  <v-col cols="auto" sm="4" md="5"  lg="4">
+                  <v-col cols="auto" sm="4" md="5" lg="4" class="">
                     <v-btn rounded color="primary" class="text-none"
                       >Como Protegerse
                       <v-icon right>fas fa-shield-virus</v-icon>
                     </v-btn>
                   </v-col>
-                  <v-col cols="auto" sm="4" md="5" lg="4">
+                  <v-col cols="auto" sm="4" md="5" lg="4" class="ml-2">
                     <v-btn
                       rounded
                       href="https://previenecovid19.puebla.gob.mx/"
                       target="_blank"
                       text
                       color="primary"
-                      >Acerca de Covid-19 🡢
+                      >Acerca de Covid-19 <v-icon small right>fas fa-arrow-right</v-icon>
                     </v-btn>
                   </v-col>
                 </v-row>
@@ -59,6 +59,7 @@
                   <p class="grey--text">{{ covid.cases.toLocaleString() }}</p>
                 </v-col>
                 <v-col
+                  align="center"
                   cols="auto"
                   sm="4"
                   class="text-one rojo-text txt-letters"
@@ -68,7 +69,11 @@
                     {{ covid.deaths.toLocaleString() }}
                   </p></v-col
                 >
-                <v-col cols="auto" sm="4" class="text-one rojo-text txt-letters"
+                <v-col
+                  cols="auto"
+                  align="center"
+                  sm="4"
+                  class="text-one rojo-text txt-letters"
                   >RECUPERADOS
                   <p class="grey--text">
                     {{ covid.recovered.toLocaleString() }}
@@ -95,37 +100,39 @@
 </template>
 
 <script>
-  export default {
-    name: "Home",
-    data: () => ({
-      covid: {
-        cases: 0,
-        deaths: 0,
-        recovered: 0,
-      },
-      dialog: false,
-    }),
-    created() {
-      this.getCovid();
+import Nprogress from "nprogress";
+export default {
+  name: "Home",
+  data: () => ({
+    covid: {
+      cases: 0,
+      deaths: 0,
+      recovered: 0,
     },
-    methods: {
-      getCovid() {
-        this.axios
-          .get("https://coronavirus-19-api.herokuapp.com/all")
-          .then((response) => {
-            this.covid = response.data;
-          });
-      },
+    dialog: false,
+  }),
+  async created() {
+    this.getCovid();
+    Nprogress.done();
+  },
+  methods: {
+    getCovid() {
+      this.axios
+        .get("https://coronavirus-19-api.herokuapp.com/all")
+        .then((response) => {
+          this.covid = response.data;
+        });
     },
-  };
+  },
+};
 </script>
 
 <style scoped>
-  .txt-size {
-    font-size: 38px;
-    color: rgb(114, 114, 114);
-  }
-  .txt-letters {
-    font-size: 27px;
-  }
+.txt-size {
+  font-size: 38px;
+  color: rgb(114, 114, 114);
+}
+.txt-letters {
+  font-size: 27px;
+}
 </style>

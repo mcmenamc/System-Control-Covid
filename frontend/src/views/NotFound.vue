@@ -13,7 +13,12 @@
 </template>
 
 <script>
-export default {};
+import Nprogress from 'nprogress'
+export default {
+  async created() {
+    Nprogress.done();
+  },
+};
 </script>
 
 
