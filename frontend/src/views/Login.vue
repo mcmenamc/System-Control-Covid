@@ -28,7 +28,11 @@
                     </v-row>
                   </v-card-title>
                   <v-card-text>
-                    <v-form ref="form" lazy-validation>
+                    <v-form
+                      ref="form"
+                      lazy-validation
+                      @submit.prevent="validate"
+                    >
                       <v-row class="d-flex justify-center">
                         <v-col cols="12" sm="8" md="7">
                           <v-text-field
@@ -47,7 +51,7 @@
                             v-model="login.contrasena"
                             label="Contraseña"
                             outlined
-                            :rules="[rules.required, rules.max]"
+                            :rules="[rules.required, rules.max, rules.min]"
                             :type="show ? 'text' : 'password'"
                             placeholder="Escriba su contraseña"
                             :append-icon="
@@ -61,6 +65,7 @@
                             label="recordarme"
                             type="checkbox"
                             required
+                            v-model="remember"
                             class="mt-4"
                           ></v-checkbox>
 
@@ -68,7 +73,7 @@
                             color="primary"
                             class="mt-4"
                             block
-                            @click="validate"
+                            type="submit"
                           >
                             Iniciar sesión
                           </v-btn>
@@ -98,7 +103,7 @@
               cycle
               hide-delimiter-background
               show-arrows-on-hover
-              class="rounded  elevation-2"
+              class="rounded elevation-2"
             >
               <v-carousel-item
                 v-for="(item, i) in items"
@@ -114,69 +119,76 @@
 </template>
 
 <script>
-import Nprogress from 'nprogress'
+import Nprogress from "nprogress";
+export default {
+  name: "Login",
+  async created() {
+    Nprogress.done();
+  },
+  data: () => ({
+    show: false,
+    login: {
+      email: "",
+      contrasena: "",
+    },
+    remember: null,
 
-  export default {
-    name: "Login",
-    async created() {
-      Nprogress.done();
+    rules: {
+      required: (value) => !!value || "Requerido.",
+      min: (v) => v.length >= 5 || "Min 5 caracteres.",
+      max: (v) => v.length <= 12 || "Max 12 caracteres.",
+      email: (b) =>
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(b) ||
+        "Correo no válido.",
     },
-    data: () => ({
-      show: false,
-      login: {
-        email: "",
-        contrasena: "",
+    items: [
+      {
+        src: "carousel-1.jpg",
       },
-      rules: {
-        required: (value) => !!value || "Requerido.",
-        min: (v) => v.length >= 8 || "Min 8 caracteres.",
-        max: (v) => v.length <= 12 || "Max 12 caracteres.",
-        email: (b) =>
-          /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(b) ||
-          "Correo no válido.",
+      {
+        src: "carousel-2.jpg",
       },
-      items: [
-        {
-          src: "carousel-1.jpg",
-        },
-        {
-          src: "carousel-2.jpg",
-        },
-        {
-          src: "carousel-3.jpg",
-        },
-        {
-          src: "carousel-4.jpg",
-        },
-      ],
-    }),
-    methods: {
-      validate() {
-        this.$refs.form.validate();
-        if (this.$refs.form.validate()) {
-          this.loginAuth();
-        }
+      {
+        src: "carousel-3.jpg",
       },
-      loginAuth() {
-        this.axios
-          .post("auth", this.login)
-          .then((response) => {
-            console.log(response.data);
-            if (response.data.data == true && response.data.results.token) {
-              console.log("login correcto");
-                this.$router.push('/');
-            } else {
-              this.$swal({
-                icon: "error",
-                title: "Oops...",
-                text: "Usuario o contraseña incorrectos",
-              });
-            }
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+      {
+        src: "carousel-4.jpg",
       },
+    ],
+  }),
+  methods: {
+    validate() {
+      this.$refs.form.validate();
+      if (this.$refs.form.validate()) {
+        this.loginAuth();
+      }
     },
-  };
+    async loginAuth() {
+      this.axios
+        .post("auth", this.login)
+        .then((response) => {
+          const token = response.data.results.token;
+          console.log(response.data);
+          if (response.data.data == true && token) {
+            // if(this.remember == 1){
+            localStorage.setItem("token", token);
+            // }
+            this.$store.dispatch("doLogin", token);
+            this.$router.push("/user");
+          } else {
+            localStorage.removeItem("token");
+            this.$swal({
+              icon: "error",
+              title: "Oops...",
+              text: "Usuario o contraseña incorrectos",
+            });
+          }
+        })
+        .catch((error) => {
+          localStorage.removeItem("token");
+          console.log(error);
+        });
+    },
+  },
+};
 </script>

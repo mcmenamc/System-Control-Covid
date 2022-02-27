@@ -3,22 +3,23 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
+import store from '../store'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/user/:id',
+    path: '/user',
     component: () => import('../views/user/Home.user.vue'),
-    meta:{
+    meta: {
       requiresAuth: true
     },
     children: [
       {
         path: '/',
-        name: 'User',
+        name: 'UserStatu',
         component: () => import('../views/user/Status.user.vue'),
-        
+
       },
     ]
   },
@@ -31,6 +32,7 @@ const routes = [
     path: '/about',
     name: 'About',
     // route level code-splitting
+
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
@@ -39,7 +41,7 @@ const routes = [
     path: '*',
     name: 'NotFound',
     component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue'),
-     
+
   },
   {
     path: '/login',
@@ -61,9 +63,24 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  // console.log(to,from)
-  Nprogress.start();
-  next();
+  // console.log(to,from)  
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    Nprogress.start();
+    const token = localStorage.getItem('token');
+    if (token !== null) {
+      store.dispatch("doLogin", token);
+      if (store.state.auth ) {
+        next();
+      } else {
+        next({ name: "Login" });
+      }
+    }
+    else {
+      next({ name: "Login" });
+    }
+  } else {
+    next();
+  }
 })
 
 export default router
