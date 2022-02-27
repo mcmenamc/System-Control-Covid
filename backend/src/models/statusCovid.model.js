@@ -2,7 +2,7 @@ const mysqlConnection = require('../config/database');
 
 const getStatusCovid = async (result) => {
     try {
-        const [rows] = await mysqlConnection.query('SELECT * FROM statusCovid AS c INNER JOIN sintomas AS s ON(c.fkSintomas = s._idSintoma) INNER JOIN personas AS p ON (c.fkPersona = p._idPersona)');
+        const [rows] = await mysqlConnection.query('SELECT * FROM statuscovid AS c INNER JOIN sintomas AS s ON(c.fksintomas = s._idsintoma) INNER JOIN personas AS p ON (c.fkpersona = p._idpersona)');
         const sintomas = await rows.map(row => {
             return {
                 _idPersona: row._idPersona,
@@ -28,7 +28,7 @@ const getStatusCovid = async (result) => {
 const getStatuCovid = async (params, result) => {
     const { _idPersona } = params;
     try {
-        const [rows] = await mysqlConnection.query('SELECT * FROM statusCovid AS c INNER JOIN sintomas AS s ON(c.fkSintomas = s._idSintoma) INNER JOIN personas AS p ON (c.fkPersona = p._idPersona) WHERE p._idPersona = ?', [_idPersona]);
+        const [rows] = await mysqlConnection.query('SELECT * FROM statuscovid AS c INNER JOIN sintomas AS s ON(c.fksintomas = s._idsintoma) INNER JOIN personas AS p ON (c.fkpersona = p._idpersona) WHERE p._idpersona = ?', [_idPersona]);
         if (rows.length > 0) {
             const sintomas = await {
                 _idPersona: rows[0]._idPersona,

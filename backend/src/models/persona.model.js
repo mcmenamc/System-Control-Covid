@@ -6,14 +6,14 @@ const getpersonas = async (result) => {
         const [rows] = await mysqlConnection.query('SELECT * FROM personas');
         const personas = rows.map(row => {
             return {
-                matricula: row.matricula,
-                nombreCompleto: row.nombre + ' ' + row.apellidoP + ' ' + row.apellidoM,
-                foto: row.fotoUrl,
+                _idPersona: row._idpersona,
+                nombreCompleto: row.nombre + ' ' + row.apellidop + ' ' + row.apellidom,
+                foto: row.fotourl,
                 correo: row.email,
                 sexo: row.sexo,
                 edad: row.edad,
-                telefono: row.telefonoPersona,
-                fechaIngreso: row.fechaIngreso
+                telefono: row.telefonopersona,
+                fechaNac: row.fechaNacimiento
             };
         });
         result(null, rows);
