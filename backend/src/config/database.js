@@ -1,6 +1,4 @@
 const mysql = require('mysql2');
-const colors = require('colors');
-
 // database 
 const pol = mysql.createPool({
   host: process.env.DB_HOST,
@@ -16,13 +14,9 @@ const pol = mysql.createPool({
   dateStrings: true,
   typeCast: true,
   debug: false,
-  multipleStatements: true,
+  multipleStatements: true
 });
-
 const mysqlConnection = pol.promise();
 
 
 module.exports = mysqlConnection;
-
-
-

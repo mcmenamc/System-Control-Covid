@@ -1,36 +1,33 @@
+const cron = require('node-cron');
 const fs = require('fs');
 const path = require('path');
+const mysqldump = require('mysqldump');
 
-// const exec = require('child_process').exec;
-
-const createdBackup = async (result) => {
-    try {
-            if (!fs.existsSync(path.join(__dirname,'../../backupdb/'))){
-            await fs.mkdirSync(path.join(__dirname,'../../backupdb/'), { recursive: true });
-            }
-            // else{
-            //     result(null, 'La carpeta ya existe');
-            // }
-            // const child = exec('mysqldump -u root -p sistemacontrolcovid >  '+ path.join(__dirname,'../../backupdb/dwdwdw.sql'), (error, stdout, stderr) => {
-            //     if (error) {
-            //         result(error, null);
-            //     }
-            //     else{
-            //         result(null, child);
-            //     }
-
-            // });
-            result(null, "Carpeta file creada");
-        }
-         catch (error) {
-        result(error, null);
-      }
-    
+cron.schedule("* * * January,March Sunday", async () => {
+    await createdBackup();
+});
 
 
+const createdBackup = async () => {
+    const dirpath = path.join(__dirname, '../../backupdb/');
+    if (!fs.existsSync(dirpath)) {
+        await fs.mkdirSync(dirpath, { recursive: true });
+    }
+    await getBackup(dirpath);
 };
 
+const getBackup = async (file) => {
+    const fileName = `${Date.now()}.sql`;
+    const filePath = file + fileName;
 
-module.exports = {
-    createdBackup
+    await mysqldump({
+        connection: {
+            host: process.env.DB_HOST,
+            user: process.env.DB_USER,
+            password: process.env.DB_PASS,
+            port: process.env.DB_PORT,
+            database: process.env.DB_NAME,
+        },
+        dumpToFile: filePath,
+    });
 };
