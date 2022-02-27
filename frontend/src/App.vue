@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <Preloader/>
     <v-app-bar
       v-if="$vuetify.breakpoint.mdAndUp"
       elevation="0"
@@ -116,9 +117,12 @@
 </template>
 
 <script>
+import Preloader from "@/components/Preloader.vue";
 export default {
   name: "App",
-
+  components: {
+    Preloader
+  },
   data: () => ({
     links: [
       {
