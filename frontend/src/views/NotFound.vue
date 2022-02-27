@@ -1,6 +1,6 @@
 <template>
-<div>
-  <div class="container">
+  <div>
+    <!-- <div class="container">
     <div  class="error">
       <p class="p">4</p>
       <span class="dracula">			
@@ -22,16 +22,30 @@
       </div>
     </div>
 	</div>
-<iframe style="width:0;height:0;border:0; border:none;" scrolling="no" frameborder="no" allow="autoplay" src="https://instaud.io/_/2Vvu.mp3"></iframe>
-</div>
+<iframe style="width:0;height:0;border:0; border:none;" scrolling="no" frameborder="no" allow="autoplay" src="https://instaud.io/_/2Vvu.mp3"></iframe> -->
+    <v-btn
+      icon
+      href="https://wa.me/522213425514?text=Me%20interesa%20saber%20si%20tengo%20covid"
+      target="_blank"
+      class="whatsapp success"
+      ><v-icon color="white" x-large>fab fa-whatsapp</v-icon></v-btn>
+  </div>
 </template>
 
 <script>
-
 </script>
 
 <style>
-@media (min-width:200px){
+.whatsapp {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  text-align: center;
+  z-index: 100;
+}
+/* @media (min-width:200px){
 *::before,
 *::after {
     content: '';
@@ -201,5 +215,5 @@ button.go-back {
 	margin-top: 20px;
 }
 button:hover {box-shadow: 0 0 20px 0 #C0D7DD;}
-}
+} */
 </style>
