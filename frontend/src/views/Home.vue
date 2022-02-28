@@ -1,5 +1,12 @@
 <template >
   <div>
+    <v-btn
+      icon
+      href="https://wa.me/522213425514?text=Me%20interesa%20saber%20si%20tengo%20covid"
+      target="_blank"
+      class="whatsapp success"
+      ><v-icon color="white" size="45">fab fa-whatsapp</v-icon>
+    </v-btn>
     <v-img
       :height="`${$vuetify.breakpoint.mobile ? 'auto' : '92vh'}`"
       src="@/assets/images/fondo.jpg"
@@ -9,7 +16,7 @@
           $vuetify.breakpoint.mobile ? 'my-4' : 'my-16'
         }`"
       >
-        <v-col  cols="12" md="11" lg="9" xl="8">
+        <v-col cols="12" md="11" lg="9" xl="8">
           <v-row class="align-center">
             <v-col md="6" class="">
               <v-row align="center" justify="center">
@@ -41,7 +48,8 @@
                       target="_blank"
                       text
                       color="primary"
-                      >Acerca de Covid-19 <v-icon small right>fas fa-arrow-right</v-icon>
+                      >Acerca de Covid-19
+                      <v-icon small right>fas fa-arrow-right</v-icon>
                     </v-btn>
                   </v-col>
                 </v-row>
@@ -134,5 +142,14 @@ export default {
 }
 .txt-letters {
   font-size: 27px;
+}
+.whatsapp {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  text-align: center;
+  z-index: 100;
 }
 </style>

@@ -164,15 +164,19 @@ export default {
       }
     },
     async loginAuth() {
+      const loading = this.$vs.loading({
+        text: "Cargando...",
+        color: "primary",
+        type: "circles",
+      });
       this.axios
         .post("auth", this.login)
         .then((response) => {
           const token = response.data.results.token;
           console.log(response.data);
+          loading.close();
           if (response.data.data == true && token) {
-            // if(this.remember == 1){
             localStorage.setItem("token", token);
-            // }
             this.$store.dispatch("doLogin", token);
             this.$router.push("/user");
           } else {

@@ -1,8 +1,9 @@
 <template>
   <div>
     Home de user
-    
-    {{$store.state.user}}
+
+
+    {{ $store.state.user }}
     <router-view />
   </div>
 </template>
@@ -15,9 +16,9 @@ export default {
   created() {
     Nprogress.done();
   },
-  methods: {},
+  methods: {
+  
+  },
 };
 </script>
 
-<style>
-</style>

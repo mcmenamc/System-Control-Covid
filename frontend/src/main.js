@@ -13,7 +13,9 @@ import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-
+import Vuesax  from 'vuesax'
+import 'vuesax/dist/vuesax.css'
+Vue.use(Vuesax )
 Vue.use(VueSweetalert2);
 Vue.use(VueAnimXYZ)
 Vue.use(Vuelidate);
