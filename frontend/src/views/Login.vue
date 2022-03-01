@@ -17,13 +17,28 @@
                   <v-card-title class="text-center d-flex justify-center">
                     <v-row>
                       <v-col class="d-flex justify-center" cols="12">
-                        <v-img
-                          max-width="165"
-                          src="@/assets/images/logo.png"
-                        ></v-img>
+                        <v-skeleton-loader
+                          :loading="loading"
+                          type="image"
+                          width="30%"
+                          height="50"
+                          transition="scale-transition"
+                        >
+                          <v-img
+                            max-width="165"
+                            src="@/assets/images/logo.png"
+                          ></v-img>
+                        </v-skeleton-loader>
                       </v-col>
-                      <v-col>
-                        <h4 class="primary--text">¡Hola de nuevo!</h4>
+                      <v-col class="d-flex justify-center">
+                        <v-skeleton-loader
+                          :loading="loading"
+                          type="text"
+                          width="45%"
+                          transition="scale-transition"
+                        >
+                          <h4 class="primary--text">¡Hola de nuevo!</h4>
+                        </v-skeleton-loader>
                       </v-col>
                     </v-row>
                   </v-card-title>
@@ -35,52 +50,88 @@
                     >
                       <v-row class="d-flex justify-center">
                         <v-col cols="12" sm="8" md="7">
-                          <v-text-field
-                            v-model="login.email"
-                            label="Correo electrónico"
-                            outlined
-                            :rules="[rules.required, rules.email]"
-                            type="email"
-                            placeholder="Escriba su correo electrónico"
-                            append-icon="fas fa-at"
-                            class="mt-4"
-                          ></v-text-field>
+                          <v-skeleton-loader
+                            :loading="loading"
+                            type="image"
+                            height="50"
+                            :class="`${loading ? 'mt-4' : ''}`"
+                            transition="scale-transition"
+                          >
+                            <v-text-field
+                              v-model="login.email"
+                              label="Correo electrónico"
+                              outlined
+                              :rules="[rules.required, rules.email]"
+                              type="email"
+                              placeholder="Escriba su correo electrónico"
+                              append-icon="fas fa-at"
+                              class="mt-4"
+                            ></v-text-field>
+                          </v-skeleton-loader>
                         </v-col>
                         <v-col cols="12" sm="8" md="7">
-                          <v-text-field
-                            v-model="login.contrasena"
-                            label="Contraseña"
-                            outlined
-                            :rules="[rules.required, rules.max, rules.min]"
-                            :type="show ? 'text' : 'password'"
-                            placeholder="Escriba su contraseña"
-                            :append-icon="
-                              show ? 'fas fa-eye' : 'fas fa-eye-slash'
-                            "
-                            @click:append="show = !show"
-                            class=""
-                          ></v-text-field>
-                          <v-checkbox
-                            value="1"
-                            label="recordarme"
-                            type="checkbox"
-                            required
-                            v-model="remember"
-                            class="mt-4"
-                          ></v-checkbox>
-
-                          <v-btn
-                            color="primary"
-                            class="mt-4"
-                            block
-                            type="submit"
+                          <v-skeleton-loader
+                            :loading="loading"
+                            type="image"
+                            height="50"
+                            :class="`${loading ? 'mt-7' : ''}`"
+                            transition="scale-transition"
                           >
-                            Iniciar sesión
-                          </v-btn>
-                          <p class="d-flex justify-lg-end">
-                            <v-btn class="text-caption" text plain
-                              >¿No tengo cuenta? Registrarse
+                            <v-text-field
+                              v-model="login.contrasena"
+                              label="Contraseña"
+                              outlined
+                              :rules="[rules.required, rules.max, rules.min]"
+                              :type="show ? 'text' : 'password'"
+                              placeholder="Escriba su contraseña"
+                              :append-icon="
+                                show ? 'fas fa-eye' : 'fas fa-eye-slash'
+                              "
+                              @click:append="show = !show"
+                              class=""
+                            ></v-text-field>
+                          </v-skeleton-loader>
+                          <v-skeleton-loader
+                            :loading="loading"
+                            type="button"
+                            :class="`${loading ? 'my-7' : ''} `"
+                            transition="scale-transition"
+                          >
+                            <v-checkbox
+                              value="1"
+                              label="recordarme"
+                              type="checkbox"
+                              required
+                              v-model="remember"
+                              class="mt-4"
+                            ></v-checkbox>
+                          </v-skeleton-loader>
+                          <v-skeleton-loader
+                            :loading="loading"
+                            type="image"
+                            height="50"
+                            transition="scale-transition"
+                          >
+                            <v-btn
+                              color="primary"
+                              class="mt-4"
+                              block
+                              type="submit"
+                            >
+                              Iniciar sesión
                             </v-btn>
+                          </v-skeleton-loader>
+                          <p class="d-flex justify-end">
+                            <v-skeleton-loader
+                              :loading="loading"
+                              type="button"
+                              :class="`${loading ? 'mt-7' : ''} `"
+                              transition="scale-transition"
+                            >
+                              <v-btn class="text-caption" text plain
+                                >¿No tengo cuenta? Registrarse
+                              </v-btn>
+                            </v-skeleton-loader>
                           </p>
                         </v-col>
                       </v-row>
@@ -97,20 +148,28 @@
             cols="11"
             md="6"
           >
-            <v-carousel
-              hide-delimiters
+            <v-skeleton-loader
+              :loading="loading"
+              type="image,image, image,text"
+              tile
+              :class="`${loading ? 'mt-2' : ''}`"
               height="73vh"
-              cycle
-              hide-delimiter-background
-              show-arrows-on-hover
-              class="rounded elevation-2"
             >
-              <v-carousel-item
-                v-for="(item, i) in items"
-                :key="i"
-                :src="require(`@/assets/images/${item.src}`)"
-              ></v-carousel-item>
-            </v-carousel>
+              <v-carousel
+                hide-delimiters
+                height="73vh"
+                cycle
+                hide-delimiter-background
+                show-arrows-on-hover
+                class="rounded elevation-2"
+              >
+                <v-carousel-item
+                  v-for="(item, i) in items"
+                  :key="i"
+                  :src="require(`@/assets/images/${item.src}`)"
+                ></v-carousel-item>
+              </v-carousel>
+            </v-skeleton-loader>
           </v-col>
         </v-row>
       </v-col>
@@ -132,7 +191,7 @@ export default {
       contrasena: "",
     },
     remember: null,
-
+    loading: true,
     rules: {
       required: (value) => !!value || "Requerido.",
       min: (v) => v.length >= 5 || "Min 5 caracteres.",
@@ -156,6 +215,11 @@ export default {
       },
     ],
   }),
+  mounted() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 380);
+  },
   methods: {
     validate() {
       this.$refs.form.validate();

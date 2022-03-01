@@ -20,7 +20,7 @@
           this.isloaded = true;
         } 
       }
-    },
+    }
   }
 </script>
 

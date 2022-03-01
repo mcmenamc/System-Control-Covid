@@ -28,6 +28,7 @@
                     type="image"
                     :loading="loading"
                     :class="`${$vuetify.breakpoint.mobile ? '' : 'my-8'}`"
+                    transition="scale-transition"
                   >
                     <v-img src="@/assets/images/coronovirus.jpg"></v-img>
                   </v-skeleton-loader>
@@ -37,7 +38,8 @@
                     type="text@5"
                     :loading="loading"
                     width="100%"
-                    :class="`${loading ? 'mt-2': ''}`"
+                    :class="`${loading ? 'mt-2' : ''}`"
+                    transition="scale-transition"
                   >
                     <p class="text-justify text-normal">
                       El coronavirus (COVID-19) se informó por primera vez en
@@ -59,7 +61,8 @@
                     <v-skeleton-loader
                       type="button"
                       :loading="loading"
-                      :class="`${loading ? 'mt-3': ''}`"
+                      :class="`${loading ? 'mt-3' : ''}`"
+                      transition="scale-transition"
                     >
                       <v-btn rounded color="primary" class="text-none"
                         >Como Protegerse
@@ -77,7 +80,8 @@
                     <v-skeleton-loader
                       type="button"
                       :loading="loading"
-                      :class="`${loading ? 'mt-3': ''}`"
+                      :class="`${loading ? 'mt-3' : ''}`"
+                      transition="scale-transition"
                     >
                       <v-btn
                         rounded
@@ -99,7 +103,8 @@
                     width="60%"
                     type="text"
                     :loading="loading"
-                    :class="`${loading ? 'mt-3': ''}`"
+                    :class="`${loading ? 'mt-3' : ''}`"
+                    transition="scale-transition"
                   >
                     Casos Covid-19
                   </v-skeleton-loader>
@@ -114,7 +119,7 @@
                     type="text"
                     :loading="loading"
                     width="100"
-                    :class="`${loading ? 'mt-3': ''}`"
+                    :class="`${loading ? 'mt-3' : ''}`"
                   >
                     MUNDIAL
                   </v-skeleton-loader>
@@ -122,7 +127,7 @@
                     type="text"
                     :loading="loading"
                     width="150"
-                    :class="`${loading ? 'mt-6': ''}`"
+                    :class="`${loading ? 'mt-6' : ''}`"
                   >
                     <p class="grey--text">{{ covid.cases.toLocaleString() }}</p>
                   </v-skeleton-loader>
@@ -136,14 +141,14 @@
                     type="text"
                     :loading="loading"
                     width="100"
-                    :class="`${loading ? 'mt-3': ''}`"
+                    :class="`${loading ? 'mt-3' : ''}`"
                     >FALLECIDOS
                   </v-skeleton-loader>
                   <v-skeleton-loader
                     type="text"
                     :loading="loading"
                     width="150"
-                    :class="`${loading ? 'mt-6': ''}`"
+                    :class="`${loading ? 'mt-6' : ''}`"
                   >
                     <p class="grey--text">
                       {{ covid.deaths.toLocaleString() }}
@@ -160,14 +165,15 @@
                     type="text"
                     :loading="loading"
                     width="100"
-                    :class="`${loading ? 'mt-3': ''}`"
+                    :class="`${loading ? 'mt-3' : ''}`"
                     >RECUPERADOS
                   </v-skeleton-loader>
                   <v-skeleton-loader
                     type="text"
                     :loading="loading"
                     width="150"
-                    :class="`${loading ? 'mt-6': ''}`"
+                    :class="`${loading ? 'mt-6' : ''}`"
+                    transition="scale-transition"
                     ><p class="grey--text">
                       {{ covid.recovered.toLocaleString() }}
                     </p>
@@ -179,7 +185,8 @@
               <v-skeleton-loader
                 type="image, image, image"
                 :loading="loading"
-                :class="`${loading ? 'mt-2': ''}`"
+                :class="`${loading ? 'mt-2' : ''}`"
+                transition="scale-transition"
               >
                 <v-img
                   contain
@@ -219,13 +226,21 @@ export default {
   async created() {
     this.getCovid();
     Nprogress.done();
+    const readyHandler = () => {
+      if (document.readyState == "complete") {
+        this.loading = false;
+        document.removeEventListener("readystatechange", readyHandler);
+      }
+    };
+    document.addEventListener("readystatechange", readyHandler);
+    readyHandler();
   },
+
   methods: {
     getCovid() {
       this.axios
         .get("https://coronavirus-19-api.herokuapp.com/all")
         .then((response) => {
-          this.loading = false;
           this.covid = response.data;
         })
         .catch((error) => {
