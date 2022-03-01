@@ -28,7 +28,6 @@
                     type="image"
                     :loading="loading"
                     :class="`${$vuetify.breakpoint.mobile ? '' : 'my-8'}`"
-                    transition="scale-transition"
                   >
                     <v-img src="@/assets/images/coronovirus.jpg"></v-img>
                   </v-skeleton-loader>
@@ -39,7 +38,6 @@
                     :loading="loading"
                     width="100%"
                     :class="`${loading ? 'mt-2' : ''}`"
-                    transition="scale-transition"
                   >
                     <p class="text-justify text-normal">
                       El coronavirus (COVID-19) se informó por primera vez en
@@ -62,7 +60,6 @@
                       type="button"
                       :loading="loading"
                       :class="`${loading ? 'mt-3' : ''}`"
-                      transition="scale-transition"
                     >
                       <v-btn rounded color="primary" class="text-none"
                         >Como Protegerse
@@ -81,7 +78,6 @@
                       type="button"
                       :loading="loading"
                       :class="`${loading ? 'mt-3' : ''}`"
-                      transition="scale-transition"
                     >
                       <v-btn
                         rounded
@@ -104,7 +100,6 @@
                     type="text"
                     :loading="loading"
                     :class="`${loading ? 'mt-3' : ''}`"
-                    transition="scale-transition"
                   >
                     Casos Covid-19
                   </v-skeleton-loader>
@@ -173,7 +168,6 @@
                     :loading="loading"
                     width="150"
                     :class="`${loading ? 'mt-6' : ''}`"
-                    transition="scale-transition"
                     ><p class="grey--text">
                       {{ covid.recovered.toLocaleString() }}
                     </p>
@@ -186,7 +180,6 @@
                 type="image, image, image"
                 :loading="loading"
                 :class="`${loading ? 'mt-2' : ''}`"
-                transition="scale-transition"
               >
                 <v-img
                   contain
@@ -201,9 +194,71 @@
     </v-img>
     <v-row class="my-10 d-flex justify-center white">
       <v-col cols="12" md="11" lg="9" xl="8">
-        <v-row class="my-16">
-          <v-col cols="7" class="error"> </v-col>
-          <v-col cols="5" class="info"> </v-col>
+        <v-row class="my-16 d-flex justify-center">
+          <v-col cols="7" class="text-center">
+            <section  id="sintomascovid">
+              <h2 class="v-heading text-h4 text-sm-h4 mb-3">
+                <a
+                  href="#sintomascovid"
+                  class="text-decoration-none text-right text-md-left"
+                >
+                  #
+                </a>
+                SÍNTOMAS DEL CORONAVIRUS
+
+              </h2>
+              <p>
+                Instances of abusive, harassing, or otherwise unacceptable
+                behavior may be reported by contacting the project team at
+                <a
+                  href="mailto:john@vuetifyjs.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="
+                    app-link
+                    text-decoration-none
+                    primary--text
+                    font-weight-medium
+                    d-inline-block
+                  "
+                  >john@vuetifyjs.com<span
+                    aria-hidden="true"
+                    class="v-icon notranslate theme--dark primary--text ml-1"
+                    style="
+                      font-size: 0.875rem;
+                      height: 0.875rem;
+                      width: 0.875rem;
+                    "
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      role="img"
+                      aria-hidden="true"
+                      class="v-icon__svg"
+                      style="
+                        font-size: 0.875rem;
+                        height: 0.875rem;
+                        width: 0.875rem;
+                      "
+                    >
+                      <path
+                        d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"
+                      ></path></svg></span></a
+                >. The project team will review and investigate all complaints,
+                and will respond in a way that it deems appropriate to the
+                circumstances. The project team is obligated to maintain
+                confidentiality with regard to the reporter of an incident.
+                Further details of specific enforcement policies may be posted
+                separately.
+              </p>
+              <p>
+                Project maintainers who do not follow or enforce the Code of
+                Conduct in good faith may face temporary or permanent
+                repercussions as determined by other members of the project’s
+                leadership.
+              </p>
+            </section>
+          </v-col>
         </v-row>
       </v-col>
     </v-row>

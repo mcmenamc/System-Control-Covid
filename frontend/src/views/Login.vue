@@ -218,7 +218,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.loading = false;
-    }, 380);
+    }, 500);
   },
   methods: {
     validate() {

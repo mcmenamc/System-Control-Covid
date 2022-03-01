@@ -59,7 +59,7 @@
           <v-list-item
             v-for="link in links"
             :key="link.id"
-            :to="link.url"
+            @click="() => this.$router.push(link.url)"
             :class="`${link.btn ? '' : 'd-none'}`"
           >
             <v-list-item-icon>
@@ -94,7 +94,7 @@
         </XyzTransition>
       </v-container>
     </v-main>
-    
+
     <v-footer color="primary lighten-1" padless>
       <v-row justify="center" no-gutters>
         <v-btn
@@ -148,7 +148,7 @@ export default {
       },
       {
         name: "Sintomas",
-        url: "/sintomas",
+        url: "/#sintomascovid",
         btn: true,
         color: "primary",
         icon: "fas fa-ambulance",
