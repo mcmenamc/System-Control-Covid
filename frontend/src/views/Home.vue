@@ -21,7 +21,7 @@
           <v-row class="d-flex justify-center">
             <v-col cols="12" md="6">
               <v-row align="center" justify="center">
-                <v-col cols="10" class="">
+                <v-col cols="10" sm="7" md="8" lg="7" class="">
                   <v-skeleton-loader
                     width="100%"
                     :height="`${$vuetify.breakpoint.mobile ? '75' : '130'}`"
@@ -50,10 +50,10 @@
                 </v-col>
                 <v-row class="d-flex justify-center">
                   <v-col
-                    cols="auto"
+                    cols="12"
                     sm="4"
-                    md="5"
-                    lg="4"
+                    md="6"
+                    lg="5"
                     class="d-flex justify-center"
                   >
                     <v-skeleton-loader
@@ -68,10 +68,10 @@
                     </v-skeleton-loader>
                   </v-col>
                   <v-col
-                    cols="auto"
+                    cols="12"
                     sm="4"
-                    md="5"
-                    lg="4"
+                    md="6"
+                    lg="5"
                     class="d-flex justify-center"
                   >
                     <v-skeleton-loader
@@ -110,12 +110,7 @@
                   sm="4"
                   class="text-one rojo-text txt-letters"
                 >
-                  <v-skeleton-loader
-                    type="text"
-                    :loading="loading"
-                    width="100"
-                    :class="`${loading ? 'mt-3' : ''}`"
-                  >
+                  <v-skeleton-loader type="text" :loading="loading" width="100">
                     MUNDIAL
                   </v-skeleton-loader>
                   <v-skeleton-loader
@@ -194,69 +189,15 @@
     </v-img>
     <v-row class="my-10 d-flex justify-center white">
       <v-col cols="12" md="11" lg="9" xl="8">
-        <v-row class="my-16 d-flex justify-center">
-          <v-col cols="7" class="text-center">
-            <section  id="sintomascovid">
-              <h2 class="v-heading text-h4 text-sm-h4 mb-3">
-                <a
-                  href="#sintomascovid"
-                  class="text-decoration-none text-right text-md-left"
-                >
-                  #
-                </a>
-                SÍNTOMAS DEL CORONAVIRUS
+        <a href="#sintomascovid">Direcionar</a>
 
-              </h2>
-              <p>
-                Instances of abusive, harassing, or otherwise unacceptable
-                behavior may be reported by contacting the project team at
-                <a
-                  href="mailto:john@vuetifyjs.com"
-                  target="_blank"
-                  rel="noopener"
-                  class="
-                    app-link
-                    text-decoration-none
-                    primary--text
-                    font-weight-medium
-                    d-inline-block
-                  "
-                  >john@vuetifyjs.com<span
-                    aria-hidden="true"
-                    class="v-icon notranslate theme--dark primary--text ml-1"
-                    style="
-                      font-size: 0.875rem;
-                      height: 0.875rem;
-                      width: 0.875rem;
-                    "
-                    ><svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      role="img"
-                      aria-hidden="true"
-                      class="v-icon__svg"
-                      style="
-                        font-size: 0.875rem;
-                        height: 0.875rem;
-                        width: 0.875rem;
-                      "
-                    >
-                      <path
-                        d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"
-                      ></path></svg></span></a
-                >. The project team will review and investigate all complaints,
-                and will respond in a way that it deems appropriate to the
-                circumstances. The project team is obligated to maintain
-                confidentiality with regard to the reporter of an incident.
-                Further details of specific enforcement policies may be posted
-                separately.
-              </p>
-              <p>
-                Project maintainers who do not follow or enforce the Code of
-                Conduct in good faith may face temporary or permanent
-                repercussions as determined by other members of the project’s
-                leadership.
-              </p>
+        <v-row class="my-16 d-flex justify-center">
+          <v-col cols="7" class="error">
+            <section id="sintomascovid">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+              eum sint a commodi soluta tenetur debitis laborum modi, nesciunt
+              et ex nemo quae perspiciatis assumenda cum vero dolor magnam!
+              Magni?
             </section>
           </v-col>
         </v-row>

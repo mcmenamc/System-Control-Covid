@@ -59,7 +59,7 @@
           <v-list-item
             v-for="link in links"
             :key="link.id"
-            @click="() => this.$router.push(link.url)"
+            @click="() => $vuetify.goTo(link.url)"
             :class="`${link.btn ? '' : 'd-none'}`"
           >
             <v-list-item-icon>
@@ -189,8 +189,11 @@ export default {
       if (this.$router.currentRoute.path !== "/") {
         this.$router.push("/");
       }
+
     },
+    
   },
+
 };
 </script>
 <style>
