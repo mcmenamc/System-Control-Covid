@@ -23,7 +23,6 @@ Vue.use(VueAxios, axios)
 // axios.defaults.baseURL = 'http://localhost:3000/api';
 axios.defaults.baseURL = 'https://sistema-control-covid.herokuapp.com/api';
 
-
 new Vue({
   router,
   store,

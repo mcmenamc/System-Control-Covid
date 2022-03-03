@@ -1,4 +1,4 @@
-module.exports = {
-    outputDir: __dirname + '/../backend/src/views/client',
+// module.exports = {
+//     outputDir: __dirname + '/../backend/src/views/client',
   
-  }
+//   }

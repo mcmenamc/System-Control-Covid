@@ -148,7 +148,7 @@ export default {
       },
       {
         name: "Sintomas",
-        url: "/#sintomascovid",
+        url: "/sintomascovid",
         btn: true,
         color: "primary",
         icon: "fas fa-ambulance",
