@@ -59,7 +59,7 @@
           <v-list-item
             v-for="link in links"
             :key="link.id"
-            @click="() => $vuetify.goTo(link.url)"
+            :to="link.url"
             :class="`${link.btn ? '' : 'd-none'}`"
           >
             <v-list-item-icon>
