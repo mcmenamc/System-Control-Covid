@@ -17,14 +17,13 @@
                   <v-card-title class="text-center d-flex justify-center">
                     <v-row>
                       <v-col class="d-flex justify-center" cols="12">
-                          <v-img
-                            max-width="165"
-                            src="@/assets/images/logo.png"
-                          ></v-img>
+                        <v-img
+                          max-width="165"
+                          src="@/assets/images/logo.png"
+                        ></v-img>
                       </v-col>
                       <v-col class="d-flex justify-center">
-                       
-                          <h4 class="primary--text">¡Hola de nuevo!</h4>
+                        <h4 class="primary--text">¡Hola de nuevo!</h4>
                       </v-col>
                     </v-row>
                   </v-card-title>
@@ -36,55 +35,53 @@
                     >
                       <v-row class="d-flex justify-center">
                         <v-col cols="12" sm="8" md="7">
-                          
-                            <v-text-field
-                              v-model="login.email"
-                              label="Correo electrónico"
-                              outlined
-                              :rules="[rules.required, rules.email]"
-                              type="email"
-                              placeholder="Escriba su correo electrónico"
-                              append-icon="fas fa-at"
-                              class="mt-4"
-                            ></v-text-field>
+                          <v-text-field
+                            v-model="login.email"
+                            label="Correo electrónico"
+                            outlined
+                            :rules="[rules.required, rules.email]"
+                            type="email"
+                            placeholder="Escriba su correo electrónico"
+                            append-icon="fas fa-at"
+                            class="mt-4"
+                          ></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="8" md="7">
-                            <v-text-field
-                              v-model="login.contrasena"
-                              label="Contraseña"
-                              outlined
-                              :rules="[rules.required, rules.max, rules.min]"
-                              :type="show ? 'text' : 'password'"
-                              placeholder="Escriba su contraseña"
-                              :append-icon="
-                                show ? 'fas fa-eye' : 'fas fa-eye-slash'
-                              "
-                              @click:append="show = !show"
-                              class=""
-                            ></v-text-field>
-                          
-                            <v-checkbox
-                              value="1"
-                              label="recordarme"
-                              type="checkbox"
-                              required
-                              v-model="remember"
-                              class="mt-4"
-                            ></v-checkbox>
-                         
-                            <v-btn
-                              color="primary"
-                              class="mt-4"
-                              block
-                              type="submit"
-                            >
-                              Iniciar sesión
-                            </v-btn>
+                          <v-text-field
+                            v-model="login.contrasena"
+                            label="Contraseña"
+                            outlined
+                            :rules="[rules.required, rules.max, rules.min]"
+                            :type="show ? 'text' : 'password'"
+                            placeholder="Escriba su contraseña"
+                            :append-icon="
+                              show ? 'fas fa-eye' : 'fas fa-eye-slash'
+                            "
+                            @click:append="show = !show"
+                            class=""
+                          ></v-text-field>
+
+                          <v-checkbox
+                            value="1"
+                            label="recordarme"
+                            type="checkbox"
+                            required
+                            v-model="remember"
+                            class="mt-4"
+                          ></v-checkbox>
+
+                          <v-btn
+                            color="primary"
+                            class="mt-4"
+                            block
+                            type="submit"
+                          >
+                            Iniciar sesión
+                          </v-btn>
                           <p class="d-flex justify-end">
-                            >
-                              <v-btn class="text-caption" text plain
-                                >¿No tengo cuenta? Registrarse
-                              </v-btn>
+                            <v-btn class="text-caption" text plain
+                              >¿No tengo cuenta? Registrarse
+                            </v-btn>
                           </p>
                         </v-col>
                       </v-row>
@@ -95,27 +92,25 @@
             </v-row>
           </v-col>
           <v-col
-            :class="`${
-              $vuetify.breakpoint.sm || $vuetify.breakpoint.xs ? 'd-none' : ''
-            }  pa-0 `"
+            v-if="!$vuetify.breakpoint.mobile"
+            class="pa-0"
             cols="11"
             md="6"
           >
-          
-              <v-carousel
-                hide-delimiters
-                height="73vh"
-                cycle
-                hide-delimiter-background
-                show-arrows-on-hover
-                class="rounded elevation-2"
-              >
-                <v-carousel-item
-                  v-for="(item, i) in items"
-                  :key="i"
-                  :src="require(`@/assets/images/${item.src}`)"
-                ></v-carousel-item>
-              </v-carousel>
+            <v-carousel
+              hide-delimiters
+              height="73vh"
+              cycle
+              hide-delimiter-background
+              show-arrows-on-hover
+              class="rounded elevation-2"
+            >
+              <v-carousel-item
+                v-for="(item, i) in items"
+                :key="i"
+                :src="require(`@/assets/images/${item.src}`)"
+              ></v-carousel-item>
+            </v-carousel>
           </v-col>
         </v-row>
       </v-col>
