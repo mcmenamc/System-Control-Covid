@@ -212,6 +212,10 @@ export default {
 .rojo-text {
   color: #ff8086;
 }
+.txt-size {
+  font-size: 38px;
+  color: rgb(114, 114, 114);
+}
 main {
   background-color: #f6f8fe;
 }

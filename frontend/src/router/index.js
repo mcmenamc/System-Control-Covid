@@ -35,13 +35,12 @@ const routes = [
 
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "About" */ '../views/About.vue')
   },
   {
-    path: '*',
-    name: 'NotFound',
-    component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue'),
-
+    path: '/contact',
+    name: 'Contact',
+    component: () => import(/* webpackChunkName: "Contact" */ '../views/Contact.vue')
   },
   {
     path: '/login',
@@ -52,7 +51,13 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: () => import(/* webpackChunkName: "Register" */ '../views/Register.vue'),
-  }
+  },
+  {
+    path: '*',
+    name: 'NotFound',
+    component: () => import(/* webpackChunkName: "error" */ '../views/NotFound.vue'),
+
+  },
 ]
 
 

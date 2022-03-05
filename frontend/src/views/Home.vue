@@ -248,10 +248,7 @@ export default {
 </script>
 
 <style scoped>
-.txt-size {
-  font-size: 38px;
-  color: rgb(114, 114, 114);
-}
+
 .txt-letters {
   font-size: 27px;
 }
