@@ -17,8 +17,6 @@
                   <v-card-title class="text-center d-flex justify-center">
                     <v-row>
                       <v-col class="d-flex justify-center" cols="12">
-                        nsition="scale-transition"
-                        >
                           <v-img
                             max-width="165"
                             src="@/assets/images/logo.png"
@@ -139,7 +137,6 @@ export default {
       contrasena: "",
     },
     remember: null,
-    loading: true,
     rules: {
       required: (value) => !!value || "Requerido.",
       min: (v) => v.length >= 5 || "Min 5 caracteres.",
@@ -163,11 +160,7 @@ export default {
       },
     ],
   }),
-  mounted() {
-    setTimeout(() => {
-      this.loading = false;
-    }, 500);
-  },
+
   methods: {
     validate() {
       this.$refs.form.validate();
