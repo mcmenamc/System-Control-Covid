@@ -1,50 +1,6 @@
 <template>
   <v-app>
     <Preloader />
-    <v-app-bar
-      v-if="$vuetify.breakpoint.mdAndUp"
-      elevation="0"
-      app
-      :color="bgcolor"
-      class="d-flex justify-center"
-    >
-      <v-img
-        width="180"
-        @click="inicio()"
-        class="mr-5 poiter"
-        src="@/assets/images/logo.png"
-      ></v-img>
-      <v-btn
-        class="mr-2 custom-transform-class text-none text-md-h6"
-        :text="link.btn"
-        v-for="link of links"
-        :key="link.id"
-        :to="link.url"
-        :color="link.color"
-        :plain="link.btn"
-      >
-        {{ link.name }}
-      </v-btn>
-    </v-app-bar>
-
-    <v-app-bar
-      elevation="0"
-      v-if="$vuetify.breakpoint.smAndDown"
-      app
-      :color="bgcolor"
-      class=""
-    >
-      <v-row class="flex justify-center align-center">
-        <v-col cols="6" sm="4" class="d-flex justify-start">
-          <v-img width="150" src="@/assets/images/logo.png"></v-img>
-        </v-col>
-        <v-col cols="6" sm="4" class="d-flex justify-end">
-          <v-btn @click.stop="drawer = !drawer" icon>
-            <v-icon>{{ `fas ${drawer ? "fa-times" : "fa-bars"}` }}</v-icon>
-          </v-btn>
-        </v-col>
-      </v-row>
-    </v-app-bar>
     <v-navigation-drawer v-model="drawer" app temporary>
       <v-list-item>
         <v-list-item-content>
@@ -82,6 +38,49 @@
         </div>
       </template>
     </v-navigation-drawer>
+    <v-app-bar
+      elevation="0"
+      v-if="$vuetify.breakpoint.smAndDown"
+      app
+      :color="bgcolor"
+      class=""
+    >
+      <v-row class="flex justify-center align-center">
+        <v-col cols="6" sm="4" class="d-flex justify-start">
+          <v-img width="150" src="@/assets/images/logo.png"></v-img>
+        </v-col>
+        <v-col cols="6" sm="4" class="d-flex justify-end">
+          <v-btn @click.stop="drawer = !drawer" icon>
+            <v-icon>{{ `fas ${drawer ? "fa-times" : "fa-bars"}` }}</v-icon>
+          </v-btn>
+        </v-col>
+      </v-row>
+    </v-app-bar>
+    <v-app-bar
+      v-if="$vuetify.breakpoint.mdAndUp"
+      elevation="0"
+      app
+      :color="bgcolor"
+      class="d-flex justify-center"
+    >
+      <v-img
+        width="180"
+        @click="inicio()"
+        class="mr-5 poiter"
+        src="@/assets/images/logo.png"
+      ></v-img>
+      <v-btn
+        class="mr-2 custom-transform-class text-none text-md-h6"
+        :text="link.btn"
+        v-for="link of links"
+        :key="link.id"
+        :to="link.url"
+        :color="link.color"
+        :plain="link.btn"
+      >
+        {{ link.name }}
+      </v-btn>
+    </v-app-bar>
 
     <v-main>
       <v-container fluid>
@@ -189,11 +188,8 @@ export default {
       if (this.$router.currentRoute.path !== "/") {
         this.$router.push("/");
       }
-
     },
-    
   },
-
 };
 </script>
 <style>
