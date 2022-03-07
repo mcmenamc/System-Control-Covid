@@ -21,7 +21,7 @@ Vue.use(VueAnimXYZ)
 Vue.use(Vuelidate);
 Vue.use(VueAxios, axios)
 // axios.defaults.baseURL = 'http://localhost:3000/api';
-axios.defaults.baseURL = 'https://sistema-control-covid.herokuapp.com/api';
+axios.defaults.baseURL = 'https://api-sistema-covid.herokuapp.com/api';
 
 new Vue({
   router,
