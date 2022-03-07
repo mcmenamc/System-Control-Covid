@@ -1,7 +1,7 @@
 <template>
   <v-img
     :height="`${$vuetify.breakpoint.mobile ? 'auto' : '92vh'}`"
-    src="https://firebasestorage.googleapis.com/v0/b/sistema-control-covid.appspot.com/o/assets%2Fimages%2Ffondo.jpg?alt=media&token=5366c4dd-49fb-4632-9ad7-6ebda607cc18"
+    src="@/assets/images/fondo.jpg"
   >
     <v-row
       :class="`img-fondo d-flex flex-wrap d-flex justify-center ${
@@ -19,7 +19,7 @@
                       <v-col class="d-flex justify-center" cols="12">
                         <v-img
                           max-width="165"
-                          src="https://firebasestorage.googleapis.com/v0/b/sistema-control-covid.appspot.com/o/assets%2Fimages%2Flogo.png?alt=media&token=b311531d-f76b-43f6-ade3-b1fe69693a74"
+                          src="@/assets/images/logo.png"
                         ></v-img>
                       </v-col>
                       <v-col class="d-flex justify-center">
@@ -108,7 +108,7 @@
               <v-carousel-item
                 v-for="(item, i) in items"
                 :key="i"
-                :src="item.src"
+                :src="require(`@/assets/images/${item.src}`)"
               ></v-carousel-item>
             </v-carousel>
           </v-col>
@@ -142,16 +142,16 @@ export default {
     },
     items: [
       {
-        src: "https://firebasestorage.googleapis.com/v0/b/sistema-control-covid.appspot.com/o/assets%2Fimages%2Fcarousel-1.jpg?alt=media&token=763980a8-12eb-4f18-83a5-a5819dfa46b5",
+        src: "carousel-1.jpg",
       },
       {
-        src: "https://firebasestorage.googleapis.com/v0/b/sistema-control-covid.appspot.com/o/assets%2Fimages%2Fcarousel-2.jpg?alt=media&token=b8bc4fec-494e-4c06-bb68-1ec8f81c0724",
+        src: "carousel-2.jpg",
       },
       {
-        src: "https://firebasestorage.googleapis.com/v0/b/sistema-control-covid.appspot.com/o/assets%2Fimages%2Fcarousel-3.jpg?alt=media&token=533a0aeb-e621-4913-a44f-f1f04729b57b",
+        src: "carousel-3.jpg",
       },
       {
-        src: "https://firebasestorage.googleapis.com/v0/b/sistema-control-covid.appspot.com/o/assets%2Fimages%2Fcarousel-4.jpg?alt=media&token=d2314ea7-be38-4502-89a4-0f890c23cd56",
+        src: "carousel-4.jpg",
       },
     ],
   }),

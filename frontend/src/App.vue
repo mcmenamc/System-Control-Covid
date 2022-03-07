@@ -47,7 +47,7 @@
     >
       <v-row class="flex justify-center align-center">
         <v-col cols="6" sm="4" class="d-flex justify-start">
-          <v-img width="150" src="https://firebasestorage.googleapis.com/v0/b/sistema-control-covid.appspot.com/o/assets%2Fimages%2Flogo.png?alt=media&token=b311531d-f76b-43f6-ade3-b1fe69693a74"></v-img>
+          <v-img width="150" src="@/assets/images/logo.png"></v-img>
         </v-col>
         <v-col cols="6" sm="4" class="d-flex justify-end">
           <v-btn @click.stop="drawer = !drawer" icon>
@@ -67,7 +67,7 @@
         width="180"
         @click="inicio()"
         class="mr-5 poiter"
-        src="https://firebasestorage.googleapis.com/v0/b/sistema-control-covid.appspot.com/o/assets%2Fimages%2Flogo.png?alt=media&token=b311531d-f76b-43f6-ade3-b1fe69693a74"
+        src="@/assets/images/logo.png"
       ></v-img>
       <v-btn
         class="mr-2 custom-transform-class text-none text-md-h6"

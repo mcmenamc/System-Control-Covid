@@ -10,7 +10,7 @@
 
     <v-img
       :height="`${$vuetify.breakpoint.mobile ? 'auto' : '92vh'}`"
-      src="https://firebasestorage.googleapis.com/v0/b/sistema-control-covid.appspot.com/o/assets%2Fimages%2Ffondo.jpg?alt=media&token=5366c4dd-49fb-4632-9ad7-6ebda607cc18"
+      src="@/assets/images/fondo.jpg"
     >
       <v-row
         :class="`img-fondo d-flex flex-wrap justify-center ${
@@ -29,7 +29,7 @@
                     :loading="loading"
                     :class="`${$vuetify.breakpoint.mobile ? '' : 'my-8'}`"
                   >
-                    <v-img src="https://firebasestorage.googleapis.com/v0/b/sistema-control-covid.appspot.com/o/assets%2Fimages%2Fcoronovirus.jpg?alt=media&token=d746f5fe-f195-4fc6-8500-cc115b566014"></v-img>
+                    <v-img src="@/assets/images/coronovirus.jpg"></v-img>
                   </v-skeleton-loader>
                 </v-col>
                 <v-col cols="10" class="my-3">
@@ -179,7 +179,7 @@
                 <v-img
                   contain
                   height="100%"
-                  src="https://firebasestorage.googleapis.com/v0/b/sistema-control-covid.appspot.com/o/assets%2Fimages%2Fheader-a.png?alt=media&token=cd370503-afb8-4104-b1c0-5350fe4e810e"
+                  src="@/assets/images/imageb5.png"
                 ></v-img>
               </v-skeleton-loader>
             </v-col>
