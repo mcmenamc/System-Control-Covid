@@ -85,7 +85,7 @@
                     <v-col class="d-flex justify-center" cols="12">
                       <v-img
                         max-width="165"
-                        src="@/assets/images/logo.png"
+                        src="https://firebasestorage.googleapis.com/v0/b/sistema-control-covid.appspot.com/o/assets%2Fimages%2Flogo.png?alt=media&token=b311531d-f76b-43f6-ade3-b1fe69693a74"
                       ></v-img>
                     </v-col>
                     <v-col class="d-flex justify-center">
