@@ -290,7 +290,33 @@
                                       </v-btn>
                                     </v-window-item>
 
-                                    <v-window-item :value="3">
+                                    <v-window-item :value="3">                                      
+                                        <v-text-field
+                                        label="Contraseña"
+                                        outlined                                        
+                                        type="password"
+                                        placeholder="Escriba su contraseña"
+                                        class="mt-4"
+                                        autocomplete="current-password"
+                                        :value="userPassword"
+                                        hint="¡Tu contraseña pasó! ¡Las reglas de contraseña no están destinadas a romperse!"
+
+                                        @click:append="() => (value = !value)"
+                                        :type="value ? 'password' : 'text'"
+                                        :rules="[rules.password]"
+                                        @input="_=>userPassword=_"
+                                      ></v-text-field>
+                                      <v-text-field
+                                        label="Verifique la contraseña"
+                                        outlined                                        
+                                        type="password"
+                                        placeholder="Reescriba la contraseña"
+                                        class="mt-4"                                        
+                                      ></v-text-field>
+                                    </v-window-item>
+                                  </v-window>
+
+                                  <v-window-item :value="4">
                                       <div class="pa-4 text-center">
                                         <v-img
                                           class="mb-4"
@@ -322,7 +348,7 @@
                                     </v-btn>
                                     <v-spacer></v-spacer>
                                     <v-btn
-                                      :disabled="step === 3"
+                                      :disabled="step === 4"
                                       color="primary"
                                       depressed
                                       @click="step++"
@@ -400,6 +426,14 @@ export default {
       email: (b) =>
         /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(b) ||
         "Correo no válido.",
+      password: value => {
+        const pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+        return(
+          pattern.test(value) ||
+          "Min. 8 caracteres con al menos una letra mayúscula, un número y un carácter especial"
+        );
+      }
+      
     },
     items: [
       {
@@ -433,7 +467,12 @@ export default {
     modal: false,
     activePicker: null,
     date: null,
-    menu: false
+    menu: false,
+
+    //Validación de las contraseñas
+    userPassword: "",
+    valid: true,
+    value: true,    
   }),
 
   watch:{
@@ -503,6 +542,6 @@ export default {
     imprimirJUASJUAS() {
       console.log(this.register);
     },
-  },
+  }  
 };
 </script>
