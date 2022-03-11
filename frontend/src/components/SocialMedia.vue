@@ -16,15 +16,18 @@
     </a>
 
     <li class="menu-item item-whatsapp">
-      <v-btn
-        icon
-        href="https://wa.me/522213425514?text=Me%20interesa%20saber%20si%20tengo%20covid"
+      <a
         target="_blank"
-        ><v-icon color="white" x-large>fab fa-whatsapp</v-icon></v-btn
+        href="https://wa.me/522213425514?text=Me%20interesa%20saber%20si%20tengo%20covid"
       >
+        <i class="fab fa-whatsapp"></i>
+      </a>
     </li>
     <li class="menu-item item-facebook">
-      <a target="_blank" href="https://www.facebook.com/Sistema-Control-110758394880847">
+      <a
+        target="_blank"
+        href="https://www.facebook.com/Sistema-Control-110758394880847"
+      >
         <i class="fab fa-facebook-square"></i>
       </a>
     </li>
