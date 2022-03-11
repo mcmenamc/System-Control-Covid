@@ -229,4 +229,7 @@ html::-webkit-scrollbar-thumb:hover {
 .poiter:hover {
   cursor: pointer;
 }
+.titles{
+  font-size: 2.1rem;
+}
 </style>

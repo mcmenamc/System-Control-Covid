@@ -120,10 +120,8 @@
 </template>
 
 <script>
-import Nprogress from "nprogress";
 export default {
-  async created() {
-    Nprogress.done();
+   created() {
   },
   data: () => ({
     e6: 1,

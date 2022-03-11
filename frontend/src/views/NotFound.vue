@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>
-      4<span><i class="fas fa-bomb"></i></span>4
+      4<span><i class="fas fa-shield-virus"></i></span>4
     </h1>
     <h2>Error: 404 página No Encontrada</h2>
     <p>Lo sentimos, no se puede acceder a la página que está buscando</p>
@@ -13,10 +13,8 @@
 </template>
 
 <script>
-import Nprogress from 'nprogress'
 export default {
-  async created() {
-    Nprogress.done();
+   created() {
   },
 };
 </script>
@@ -48,7 +46,7 @@ export default {
   }
   h1 > span {
     animation: spooky 2s alternate infinite linear;
-    color: #528cce;
+    color: #2a81ea;
     display: inline-block;
   }
   h2 {

@@ -119,11 +119,9 @@
 </template>
 
 <script>
-import Nprogress from "nprogress";
 export default {
   name: "Login",
-  async created() {
-    Nprogress.done();
+   created() {
   },
   data: () => ({
     show: false,

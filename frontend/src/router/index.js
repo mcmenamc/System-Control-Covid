@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Nprogress from 'nprogress'
-import 'nprogress/nprogress.css'
 import store from '../store'
 
 Vue.use(VueRouter)
@@ -68,9 +66,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  // console.log(to,from)  
   if (to.matched.some((record) => record.meta.requiresAuth)) {
-    Nprogress.start();
     const token = localStorage.getItem('token');
     if (token !== null) {
       store.dispatch("doLogin", token);

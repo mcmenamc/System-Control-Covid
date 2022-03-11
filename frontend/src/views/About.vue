@@ -6,15 +6,11 @@
   </v-row>
 </template>
 <script>
-import Nprogress from "nprogress";
-import LectorQR from "../components/LectorQR";
 export default {
   name: "About",
   components: {
-    LectorQR,
   },
-  async created() {
-    Nprogress.done();
+   created() {
   },
 };
 </script>
