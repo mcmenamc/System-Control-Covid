@@ -5,7 +5,7 @@
     }`"
   >
     <v-col cols="12" md="11" lg="9" xl="8">
-      <v-row class="d-flex justify-center contact rounded-xl">
+      <v-row class="d-flex justify-center contact pa-0">
         <v-col cols="12" md="6" class="">
           <v-row class="d-flex justify-start pa-lg-16">
             <v-col cols="12" lg="10" class="">
@@ -76,10 +76,10 @@
             </v-col>
           </v-row>
         </v-col>
-        <v-col cols="12" md="6" class="">
-          <v-row class="d-flex justify-center pa-lg-15">
+        <v-col cols="12" sm="5" md="6" class="pa-0 mt-5">
+          <v-row class="d-flex justify-center pa-md-5 pa-xl-15">
             <v-col cols="11" class="pa-0">
-              <v-card class="white rounded-xl pa-lg-11 my-5">
+              <v-card class="white  pa-xl-11 my-5">
                 <v-card-title class="text-center d-flex justify-center">
                   <v-row>
                     <v-col class="d-flex justify-center" cols="12">
@@ -182,7 +182,7 @@ export default {
 
 <style scoped>
 .contact {
-  background-color: #16275a;
+  background-color: #1c2a55;
 }
 .color-grey {
   color: #a6a7b9;

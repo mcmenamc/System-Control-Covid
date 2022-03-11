@@ -1,104 +1,97 @@
 <template >
   <div>
-  
-    <Social/>
-    
-      <v-row class="img-fondo d-flex flex-wrap justify-center my-5 my-xl-16">
-        <v-col cols="12" sm="12" md="12" lg="11" xl="8">
-          <v-row class="d-flex justify-center">
-            <v-col cols="12" md="6">
-              <v-row align="center" justify="center">
-                <v-col cols="10" sm="7" md="8" lg="7" class="">
-                  <v-img src="@/assets/images/coronovirus.jpg"></v-img>
-                </v-col>
-                <v-col cols="10" class="my-3">
-                  <p class="text-justify text-normal">
-                    El coronavirus (COVID-19) se informó por primera vez en
-                    Wuhan, Hubei, China, en diciembre de 2019; el brote fue
-                    reconocido posteriormente como una pandemia por la
-                    Organización Mundial de la Salud (OMS) el 11 de marzo de
-                    2020.
-                  </p>
-                </v-col>
-                <v-row class="d-flex justify-center">
-                  <v-col
-                    cols="12"
-                    sm="4"
-                    md="5"
-                    lg="5"
-                    class="d-flex justify-center"
-                  >
-                    <v-btn rounded color="primary" class="text-none"
-                      >Como Protegerse
-                      <v-icon right>fas fa-shield-virus</v-icon>
-                    </v-btn>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="4"
-                    md="5"
-                    lg="5"
-                    class="d-flex justify-center"
-                  >
-                    <v-btn
-                      rounded
-                      href="https://previenecovid19.puebla.gob.mx/"
-                      target="_blank"
-                      text
-                      color="primary"
-                    >
-                      Acerca de Covid-19
-                      <v-icon small right>fas fa-arrow-right</v-icon>
-                    </v-btn>
-                  </v-col>
-                </v-row>
-              </v-row>
-              <v-row class="d-flex justify-center my-5">
-                <v-col align="center" cols="12" class="text-one txt-size">
-                  Casos Covid-19
-                </v-col>
+    <Social />
+    <v-row class="img-fondo d-flex flex-wrap justify-center my-5 my-xl-16">
+      <v-col cols="12" sm="12" md="12" lg="11" xl="8">
+        <v-row class="d-flex justify-center">
+          <v-col cols="12" md="6">
+            <v-row align="center" justify="center">
+              <v-col cols="10" sm="7" md="8" lg="7" class="">
+                <v-img src="@/assets/images/coronovirus.jpg"></v-img>
+              </v-col>
+              <v-col cols="10" class="my-3">
+                <p class="text-justify text-normal">
+                  El coronavirus (COVID-19) se informó por primera vez en Wuhan,
+                  Hubei, China, en diciembre de 2019; el brote fue reconocido
+                  posteriormente como una pandemia por la Organización Mundial
+                  de la Salud (OMS) el 11 de marzo de 2020.
+                </p>
+              </v-col>
+              <v-row class="d-flex justify-center">
                 <v-col
-                  align="center"
-                  cols="auto"
+                  cols="12"
                   sm="4"
-                  class="text-one rojo-text txt-letters"
+                  md="5"
+                  lg="5"
+                  class="d-flex justify-center"
                 >
-                  MUNDIAL
-                  <p class="grey--text">{{ covid.cases.toLocaleString() }}</p>
+                  <v-btn rounded color="primary" class="text-none"
+                    >Como Protegerse
+                    <v-icon right>fas fa-shield-virus</v-icon>
+                  </v-btn>
                 </v-col>
                 <v-col
-                  align="center"
-                  cols="auto"
+                  cols="12"
                   sm="4"
-                  class="text-one rojo-text txt-letters"
-                  >FALLECIDOS
-                  <p class="grey--text">
-                    {{ covid.deaths.toLocaleString() }}
-                  </p>
-                </v-col>
-                <v-col
-                  cols="auto"
-                  align="center"
-                  sm="4"
-                  class="text-one rojo-text txt-letters"
+                  md="5"
+                  lg="5"
+                  class="d-flex justify-center"
                 >
-                  RECUPERADOS
-                  <p class="grey--text">
-                    {{ covid.recovered.toLocaleString() }}
-                  </p>
+                  <v-btn
+                    rounded
+                    href="https://previenecovid19.puebla.gob.mx/"
+                    target="_blank"
+                    text
+                    color="primary"
+                  >
+                    Acerca de Covid-19
+                    <v-icon small right>fas fa-arrow-right</v-icon>
+                  </v-btn>
                 </v-col>
               </v-row>
-            </v-col>
-            <v-col cols="10" sm="8" md="6" class="pa-0">
-              <v-img
-                contain
-                height="80%"
-                src="@/assets/images/home.png"
-              ></v-img>
-            </v-col>
-          </v-row>
-        </v-col>
-      </v-row>
+            </v-row>
+            <v-row class="d-flex justify-center my-5">
+              <v-col align="center" cols="12" class="text-one txt-size">
+                Casos Covid-19
+              </v-col>
+              <v-col
+                align="center"
+                cols="auto"
+                sm="4"
+                class="text-one rojo-text txt-letters"
+              >
+                MUNDIAL
+                <p class="grey--text">{{ covid.cases.toLocaleString() }}</p>
+              </v-col>
+              <v-col
+                align="center"
+                cols="auto"
+                sm="4"
+                class="text-one rojo-text txt-letters"
+                >FALLECIDOS
+                <p class="grey--text">
+                  {{ covid.deaths.toLocaleString() }}
+                </p>
+              </v-col>
+              <v-col
+                cols="auto"
+                align="center"
+                sm="4"
+                class="text-one rojo-text txt-letters"
+              >
+                RECUPERADOS
+                <p class="grey--text">
+                  {{ covid.recovered.toLocaleString() }}
+                </p>
+              </v-col>
+            </v-row>
+          </v-col>
+          <v-col cols="10" sm="8" md="6" class="pa-0">
+            <v-img contain height="80%" src="@/assets/images/home.png"></v-img>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
     <v-row class="my-10 white">
       <v-col class="mt-xl-16" cols="12">
         <v-row class="d-flex justify-center">
@@ -173,17 +166,24 @@
                   </v-list-item-title>
                   <v-card-text>
                     <div class="text--primary text-normal text-justify">
-                      <strong>Fiebre alta:</strong> Aproximadamente 1 de cada 6
-                      personas que contraen COVID-19 se enferma gravemente y
-                      desarrolla dificultad para respirar o dificultad para
-                      respirar.
+                      <strong>Respiración dificultosa:</strong> Aproximadamente
+                      1 de cada 6 personas que contraen COVID-19 se enferma
+                      gravemente y desarrolla dificultad para respirar o
+                      dificultad para respirar.
                     </div>
                   </v-card-text>
                 </v-list-item-content>
               </v-list-item>
             </v-card>
           </v-col>
-          <v-col cols="12" sm="10" md="9" lg="8" xl="7" class="d-flex justify-center">
+          <v-col
+            cols="12"
+            sm="10"
+            md="9"
+            lg="8"
+            xl="7"
+            class="d-flex justify-center"
+          >
             <v-alert
               text
               type="primary"
@@ -191,10 +191,10 @@
               class="mt-5"
               :width="`${$vuetify.breakpoint.mobile ? '100%' : '75%'}`"
             >
-              <strong>Quédese en casa y llame a su médico:</strong> si cree que
-              ha estado expuesto al COVID-19 y tiene fiebre y cualquier síntoma,
-              como tos o dificultad para respirar, llame a su proveedor de
-              atención médica lo antes posible para recibir asesoramiento
+              <strong>Quédese en casa y llame a su médico: :</strong> Si cree
+              que ha estado expuesto al COVID-19 y tiene fiebre y cualquier
+              síntoma, como tos o dificultad para respirar, llame a su proveedor
+              de atención médica lo antes posible para recibir asesoramiento
               médico.
             </v-alert>
           </v-col>
@@ -205,7 +205,7 @@
 </template>
 
 <script>
-import Social from '../components/SocialMedia.vue'
+import Social from "../components/SocialMedia.vue";
 export default {
   name: "Home",
   data: () => ({
@@ -227,7 +227,6 @@ export default {
     document.addEventListener("readystatechange", readyHandler);
     readyHandler();
   },
-
   methods: {
     getCovid() {
       this.axios
@@ -240,10 +239,9 @@ export default {
         });
     },
   },
-  components:{
-    Social
-
-  }
+  components: {
+    Social,
+  },
 };
 </script>
 
@@ -251,15 +249,7 @@ export default {
 .txt-letters {
   font-size: 27px;
 }
-.whatsapp {
-  position: fixed;
-  width: 60px;
-  height: 60px;
-  bottom: 40px;
-  right: 40px;
-  text-align: center;
-  z-index: 100;
-}
+
 .subtitle {
   font-size: 1.2rem;
 }
