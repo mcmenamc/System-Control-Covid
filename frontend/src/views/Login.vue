@@ -24,29 +24,16 @@
                       <v-card min-height="68vh" class="py-4 ma-0">
                         <v-card-title class="text-center d-flex justify-center">
                           <v-row>
-                            <v-col class="d-flex justify-center" cols="12">
-                              <v-skeleton-loader
-                                :loading="loading"
-                                type="image"
-                                width="30%"
-                                height="50"
-                                transition="scale-transition"
-                              >
+                            <v-col class="d-flex justify-center" cols="12">                              
                                 <v-img
                                   max-width="165"
                                   src="@/assets/images/logo.png"
                                 ></v-img>
-                              </v-skeleton-loader>
+                              
                             </v-col>
-                            <v-col class="d-flex justify-center">
-                              <v-skeleton-loader
-                                :loading="loading"
-                                type="text"
-                                width="45%"
-                                transition="scale-transition"
-                              >
+                            <v-col class="d-flex justify-center">                              
                                 <h4 class="primary--text">¡Hola de nuevo!</h4>
-                              </v-skeleton-loader>
+                              
                             </v-col>
                           </v-row>
                         </v-card-title>
@@ -58,13 +45,7 @@
                           >
                             <v-row class="d-flex justify-center">
                               <v-col cols="12" sm="8" md="7">
-                                <v-skeleton-loader
-                                  :loading="loading"
-                                  type="image"
-                                  height="50"
-                                  :class="`${loading ? 'mt-4' : ''}`"
-                                  transition="scale-transition"
-                                >
+                                
                                   <v-text-field
                                     v-model="login.email"
                                     label="Correo electrónico"
@@ -74,17 +55,10 @@
                                     placeholder="Escriba su correo electrónico"
                                     append-icon="fas fa-at"
                                     class="mt-4"
-                                  ></v-text-field>
-                                </v-skeleton-loader>
+                                  ></v-text-field>                                
                               </v-col>
                               <v-col cols="12" sm="8" md="7">
-                                <v-skeleton-loader
-                                  :loading="loading"
-                                  type="image"
-                                  height="50"
-                                  :class="`${loading ? 'mt-7' : ''}`"
-                                  transition="scale-transition"
-                                >
+                                
                                   <v-text-field
                                     v-model="login.contrasena"
                                     label="Contraseña"
@@ -101,14 +75,8 @@
                                     "
                                     @click:append="show = !show"
                                     class=""
-                                  ></v-text-field>
-                                </v-skeleton-loader>
-                                <v-skeleton-loader
-                                  :loading="loading"
-                                  type="button"
-                                  :class="`${loading ? 'my-7' : ''} `"
-                                  transition="scale-transition"
-                                >
+                                  ></v-text-field>                                
+                                
                                   <v-checkbox
                                     value="1"
                                     label="recordarme"
@@ -117,13 +85,8 @@
                                     v-model="remember"
                                     class="mt-4"
                                   ></v-checkbox>
-                                </v-skeleton-loader>
-                                <v-skeleton-loader
-                                  :loading="loading"
-                                  type="image"
-                                  height="50"
-                                  transition="scale-transition"
-                                >
+                                
+                                
                                   <v-btn
                                     color="primary"
                                     class="mt-4"
@@ -132,18 +95,13 @@
                                   >
                                     Iniciar sesión
                                   </v-btn>
-                                </v-skeleton-loader>
+                                
                                 <p class="d-flex justify-end">
-                                  <v-skeleton-loader
-                                    :loading="loading"
-                                    type="button"
-                                    :class="`${loading ? 'mt-7' : ''} `"
-                                    transition="scale-transition"
-                                  >
+                                 
                                     <v-btn class="text-caption" text plain
                                       >¿No tengo cuenta? Registrarse
                                     </v-btn>
-                                  </v-skeleton-loader>
+                                
                                 </p>
                               </v-col>
                             </v-row>
@@ -156,28 +114,17 @@
                         <v-card-title class="text-center d-flex justify-center">
                           <v-row>
                             <v-col class="d-flex justify-center" cols="12">
-                              <v-skeleton-loader
-                                :loading="loading"
-                                type="image"
-                                width="30%"
-                                height="50"
-                                transition="scale-transition"
-                              >
+                              
                                 <v-img
                                   max-width="165"
                                   src="@/assets/images/logo.png"
                                 ></v-img>
-                              </v-skeleton-loader>
+                              
                             </v-col>
                             <v-col class="d-flex justify-center">
-                              <v-skeleton-loader
-                                :loading="loading"
-                                type="text"
-                                width="45%"
-                                transition="scale-transition"
-                              >
+                              
                                 <h4 class="primary--text">¡Registrate!</h4>
-                              </v-skeleton-loader>
+                              
                             </v-col>
                           </v-row>
                         </v-card-title>
@@ -375,13 +322,7 @@
             cols="11"
             md="6"
           >
-            <v-skeleton-loader
-              :loading="loading"
-              type="image,image, image,text"
-              tile
-              :class="`${loading ? 'mt-2' : ''}`"
-              height="73vh"
-            >
+           
               <v-carousel
                 hide-delimiters
                 height="73vh"
@@ -396,7 +337,7 @@
                   :src="require(`@/assets/images/${item.src}`)"
                 ></v-carousel-item>
               </v-carousel>
-            </v-skeleton-loader>
+            
           </v-col>
         </v-row>
       </v-col>
