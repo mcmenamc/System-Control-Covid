@@ -249,7 +249,7 @@
                                         hint="¡Tu contraseña pasó! ¡Las reglas de contraseña no están destinadas a romperse!"
 
                                         @click:append="() => (value = !value)"
-                                        :type="value ? 'password' : 'text'"
+                                        :types="value ? 'password' : 'text'"
                                         :rules="[rules.password]"
                                         @input="_=>userPassword=_"
                                       ></v-text-field>
