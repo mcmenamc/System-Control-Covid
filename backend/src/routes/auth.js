@@ -1,10 +1,11 @@
 // const Joi = require('@hapi/joi');
 const {Router} = require('express');
 const router = Router();
-const {loginUserController} = require('../controllers/user.controller');
 
 
-router.post('/', loginUserController);
+router.get('/', (req, res) => {
+    res.send('Hello World!');
+});
 
 
 
