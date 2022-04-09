@@ -1,6 +1,7 @@
 const mongose = require('mongoose');
+const URI = process.env.MONGO_URI;
 
-mongose.connect('mongodb://localhost/sistemacontrolcovid',{
+mongose.connect(URI, {
     useNewUrlParser: true, 
     useUnifiedTopology: true
 })

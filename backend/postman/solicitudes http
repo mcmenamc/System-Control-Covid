@@ -1,0 +1,249 @@
+{
+	"info": {
+		"_postman_id": "9d531ba3-9e3f-4fda-be09-9e80fb7dd702",
+		"name": "SCC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Semaforo Covid",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTA5NzhmZjhiZWI4YTYzNTVhM2RmZCIsImlhdCI6MTY0OTQ0ODg0NywiZXhwIjoxNjQ5NTM1MjQ3fQ.GA05dCelXwj64VEUsKWSv9wtulpOk-ThmchsVHvIYD8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"temperatura\": 31.5,\r\n    \"sintomas\": [\"Fiebre\", \"Escalofrios\", \"Dolor estomacal\"],\r\n    \"persona\": \"Jesus Antonio Mena De la rosa\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/semaforoCovid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"semaforoCovid"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtener",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/semaforoCovid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"semaforoCovid"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtener:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/semaforoCovid/624fec0fcc1a04d65ff8a46d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"semaforoCovid",
+								"624fec0fcc1a04d65ff8a46d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete:id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGZkZDY1MDg0ZDVhNGU3ODRhYTk0ZiIsImlhdCI6MTY0OTQwNDg5MSwiZXhwIjoxNjQ5NDkxMjkxfQ.N385_GhA3FsdHQeYReKbueN6G_8hZQFpLWist1iDWyY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/semaforoCovid/624fec0fcc1a04d65ff8a46d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"semaforoCovid",
+								"624fec0fcc1a04d65ff8a46d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/semaforoCovid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"semaforoCovid"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "sigup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"Jesús Antonio\",\r\n    \"apellidop\" : \"Mena\",\r\n    \"apellidom\" : \"De la rosa\",\r\n    \"email\" : \"mcmena636@gmail.com\",\r\n    \"password\" : \"password\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/sigup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"sigup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"mcmena63@gmail.com\",\r\n    \"password\": \"password\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "usuario",
+			"item": [
+				{
+					"name": "actualizar:id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTFlMzc0MDQzZjFjNTQ3OTA1MThjMyIsImlhdCI6MTY0OTUzNjk3NCwiZXhwIjoxNjQ5NjIzMzc0fQ.tcNRigle3wTDx372Da8w0RHXt_Gnz8SHxiCtLOU8_O8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\" : \"Jesús Antonio\",\r\n    \"apellidop\" : \"Mena\",\r\n    \"apellidom\" : \"De la rosa\",\r\n    \"password\" : \"password\",\r\n    \"sexo\": \"Hombre\",\r\n    \"fechaNac\": \"2000-10-01\",\r\n    \"tels\": [\r\n        {\r\n            \"tel\": \"2213425514\",\r\n            \"lada\": \"52\"\r\n        }\r\n    ]\r\n\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/usuario/6251e374043f1c54790518c3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuario",
+								"6251e374043f1c54790518c3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

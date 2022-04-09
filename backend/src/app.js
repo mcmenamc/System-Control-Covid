@@ -1,10 +1,11 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
+require('./libs/initialsetup');
 // inicializar express
-const app = express(); 
-const pkg = require('../package.json');
+const app = express();
 
+const pkg = require('../package.json');
 // setting environment variables    
 require('dotenv').config();
 app.set('port', process.env.PORT);

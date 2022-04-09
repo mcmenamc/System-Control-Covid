@@ -1,30 +1,46 @@
 const SemaforoCovid = require('../models/semaforoCovid');
 
-module.exports.createSemaforo = async (req, res) => {
+const createSemaforo = async (req, res) => {
 
     const { temperatura, sintomas, persona } = req.body;
 
     const newSemaforoCovid = new SemaforoCovid({ temperatura, sintomas, persona });
+
     const productSave = await newSemaforoCovid.save()
-    
+
     res.status(201).json(productSave);
 };
 
-module.exports.getSemaforos = async (req, res) => {
-    res.json(
-        "getproducts"
-    );
+const getSemaforos = async (req, res) => {
+    const products = await SemaforoCovid.find();
+    res.status(200).json(products);
 };
 
-module.exports.getSemaforoById = async (req, res) => {
+const getSemaforoById = async (req, res) => {
+    const { semaforoCovidId } = req.params;
+    const product = await SemaforoCovid.findById(semaforoCovidId);
+    res.status(200).json(product);
+};
+
+const updateSemaforoById = async (req, res) => {
+    const { semaforoCovidId } = req.params;
+    const { temperatura, sintomas, persona } = req.body;
+    const updateSemaforo = await SemaforoCovid.findByIdAndUpdate(semaforoCovidId, { temperatura, sintomas, persona }, { new: true });
+    res.status(200).json(updateSemaforo);
+
 
 };
 
-module.exports.updateSemaforoById = async (req, res) => {
-
+const deleteSemaforoById = async (req, res) => {
+    const { semaforoCovidId } = req.params;
+    await SemaforoCovid.findByIdAndDelete(semaforoCovidId);
+    res.status(204).json();
 };
 
-module.exports.deleteSemaforoById = async (req, res) => {
-
+module.exports = {
+    createSemaforo,
+    getSemaforos,
+    getSemaforoById,
+    updateSemaforoById,
+    deleteSemaforoById
 };
-

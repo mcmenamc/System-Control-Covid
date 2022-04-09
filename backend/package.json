@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "sitema-control-covid-19",
   "version": "1.0.0",
   "description": "API REST para Sistema Control Covid-19",
   "main": "index.js",

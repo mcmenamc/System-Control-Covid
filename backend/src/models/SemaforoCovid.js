@@ -14,7 +14,6 @@ const semaforoCovidSchema = new Schema({
         // ref: 'Persona',
         required: true
     }
-
 }, {
     timestamps: true,
     versionKey: false

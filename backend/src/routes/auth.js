@@ -2,10 +2,10 @@
 const {Router} = require('express');
 const router = Router();
 
+const authController = require('../controllers/auth.controller');
 
-router.get('/', (req, res) => {
-    res.send('Hello World!');
-});
+router.post('/sigup', authController.singUp);
+router.post('/signin', authController.signin);
 
 
 

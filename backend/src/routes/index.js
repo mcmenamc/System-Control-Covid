@@ -2,7 +2,7 @@ const {Router} = require('express')
 const router = Router()
 const fs = require('fs')
 
-// No vover esta estructura de codigo, ya que funcionamiento del router
+// No mover esta estructura del codigo, ya que funcionamiento del router
 const pathRouter = `${__dirname}`
 
 const removeExtension = (fileName) => {
