@@ -1,4 +1,4 @@
-# frontend
+# system-covid-rare
 
 ## Project setup
 ```

@@ -6,22 +6,13 @@ import vuetify from './plugins/vuetify'
 import '@babel/polyfill'
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import '@fortawesome/fontawesome-free/css/all.css'
-import VueAnimXYZ from '@animxyz/vue'
-import '@animxyz/core'
-import Vuelidate from 'vuelidate'
-import VueSweetalert2 from 'vue-sweetalert2'
-import 'sweetalert2/dist/sweetalert2.min.css';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import Vuesax  from 'vuesax'
-import 'vuesax/dist/vuesax.css'
-Vue.use(Vuesax )
-Vue.use(VueSweetalert2);
-Vue.use(VueAnimXYZ)
-Vue.use(Vuelidate);
-Vue.use(VueAxios, axios)
-// axios.defaults.baseURL = 'http://localhost:3000/api';
-axios.defaults.baseURL = 'https://api-sistema-covid.herokuapp.com/api';
+import VueSweetalert2 from 'vue-sweetalert2';
+Vue.use(VueAxios, axios, VueSweetalert2)
+axios.defaults.baseURL = 'https://sistema-control-covid.herokuapp.com/api';
+
+Vue.config.productionTip = false
 
 new Vue({
   router,

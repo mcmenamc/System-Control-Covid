@@ -1,7 +1,7 @@
 <template>
-    <div>
-        status covid fomulario
-    </div>
+  <div>
+      <p>Esta es la Company</p>
+  </div>
 </template>
 
 <script>
