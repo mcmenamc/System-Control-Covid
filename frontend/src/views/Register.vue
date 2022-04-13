@@ -1,9 +1,9 @@
 <template>
   <div>
-      <span class="imag">          
-      </span>
+      <!-- <span class="imag">          
+      </span> -->
      <v-container>
-         <FormulaRegister/>
+         <FormulaRegister />
      </v-container>
   </div>
 </template>
@@ -24,7 +24,7 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    background: url("@/assets/images/virus.jpg");
+    background: url("@/assets/images/fondoCovid.jpg");
     background-size: cover;
 }
 </style>

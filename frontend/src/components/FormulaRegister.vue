@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card
-      elevation="2"
+      elevation="0"
       :loading="loading"
       class="mx-auto my-12 pa-2 cardColors"
       max-width="740"
