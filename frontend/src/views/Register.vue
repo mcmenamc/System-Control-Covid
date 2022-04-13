@@ -1,5 +1,7 @@
 <template>
   <div>
+      <span class="imag">          
+      </span>
      <FormulaRegister/>
   </div>
 </template>
@@ -13,6 +15,14 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.imag{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("@/assets/images/virus.jpg");
+    background-size: cover;
+}
 </style>
