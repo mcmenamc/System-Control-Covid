@@ -2,7 +2,9 @@
   <div>
       <span class="imag">          
       </span>
-     <FormulaRegister/>
+     <v-container>
+         <FormulaRegister/>
+     </v-container>
   </div>
 </template>
 

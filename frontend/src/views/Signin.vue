@@ -2,8 +2,8 @@
   <div>
     <span class="imag"></span>
     <v-container fluid class="d-flex justify-center align-center">
-      <v-col cols="10" lg="4" class="mx-auto">
-        <v-card class="pa-4 cardColors">
+      <v-col cols="12" lg="5" class="mx-auto">
+        <v-card class="my-16 pa-4 cardColors">
           <div class="text-center">
             <v-avatar color="logo lighten-4" size="100">
               <v-icon color="logo" size="40"> fas fa-user </v-icon>
