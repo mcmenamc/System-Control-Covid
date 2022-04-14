@@ -17,12 +17,21 @@
             </v-row>
           </v-img>
         </v-col>
-        <v-col class="" cols="6" md="6">
-          <v-card class="pa-4 my-16" elevation="0">
+        <v-col class="" cols="12" md="6">
+          <v-card class="pa-2 my-16" elevation="0" max-width="">
             <div class="text-center">
-              <v-avatar color="logo lighten-4" size="100">
-                <v-icon color="logo" size="40">fas fa-address-book</v-icon>
-              </v-avatar>
+            <v-btn class="mx-2" fab dark x-large color="logo" :loading="btnImage.isSelecting" @click="onButtonClick">
+              <v-icon dark>
+                fas fa-user
+              </v-icon>
+            </v-btn>
+            <input
+            ref="uploader"
+            type="file"
+            accept="image/"
+            class="d-none"
+            @change="onFileChanged"
+            >
               <v-card-title class="justify-center text-h6 font-weight-regular">
                 <h2 class="indigo--text">{{ currentTitle }}</h2>
               </v-card-title>
@@ -130,7 +139,9 @@
             </v-window>
             <v-divider class="d-none"></v-divider>
             <v-card-actions>
-              <v-btn :dissabled="step === 1" text @click="step--"> Atras </v-btn>
+              <v-btn :dissabled="step === 1" text @click="step--">
+                Atras
+              </v-btn>
               <v-spacer></v-spacer>
               <v-btn
                 :disabled="step === 4"
@@ -161,11 +172,18 @@ export default {
       date: null,
       menu: false,
     },
+
+    //cargarImagen
+    btnImage:{
+      defaultButtonText: 'fas fa-user',
+      selectedFile:null,
+      isSelecting:false
+    }
   }),
 
   watch: {
     menu(val) {
-      val && setTimeout(() => (this.activePicker = "YEAR"));
+      val && setTimeout(() => (this.calendario.activePicker = 'YEAR'));
     },
   },
 
@@ -173,6 +191,20 @@ export default {
     save(date) {
       this.$refs.menu.save(date);
     },
+
+    onButtonClick(){
+      this.btnImage.isSelecting = true
+      window.addEventListener('focus', () => {
+        this.isSelecting = false
+      }, {once: true})
+      this.$refs.uploader.click()
+    },
+    onFileChanged(e){
+      this.selectedFile = e.target.files[0]
+      console.log(this.selectedFile)
+    },
+
+    
   },
 
   //Metodos computados
@@ -192,6 +224,10 @@ export default {
           return "Account created";
       }
     },
+
+    buttonText(){
+      return this.btnImage.selectedFile ? this.btnImage.selectedFile.name : this.btnImage.defaultButtonText
+    }
   },
 };
 </script>
