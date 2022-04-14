@@ -20,18 +20,18 @@
         <v-col class="" cols="12" md="6">
           <v-card class="pa-2 my-16" elevation="0" max-width="">
             <div class="text-center">
-            <v-btn class="mx-2" fab dark x-large color="logo" :loading="btnImage.isSelecting" @click="onButtonClick">
-              <v-icon dark>
+            <v-btn class="mx-2 boton" fab dark x-large color="logo" :loading="btnImage.isSelecting" @click="onButtonClick">
+              <!--<v-icon class="icono">
                 fas fa-user
-              </v-icon>
+              </v-icon>-->
             </v-btn>
             <input
             ref="uploader"
             type="file"
-            accept="image/"
-            class="d-none"
+            accept="image/*"
+            class="d-none botonInput"
             @change="onFileChanged"
-            >
+            >            
               <v-card-title class="justify-center text-h6 font-weight-regular">
                 <h2 class="indigo--text">{{ currentTitle }}</h2>
               </v-card-title>
@@ -177,7 +177,9 @@ export default {
     btnImage:{
       defaultButtonText: 'fas fa-user',
       selectedFile:null,
-      isSelecting:false
+      isSelecting:false,
+      image: null,
+      imageUrl: ''
     }
   }),
 
@@ -196,15 +198,15 @@ export default {
       this.btnImage.isSelecting = true
       window.addEventListener('focus', () => {
         this.isSelecting = false
+
       }, {once: true})
       this.$refs.uploader.click()
-    },
+      //hideElements()
+    },    
     onFileChanged(e){
       this.selectedFile = e.target.files[0]
-      console.log(this.selectedFile)
+      console.log(this.selectedFile)      
     },
-
-    
   },
 
   //Metodos computados
