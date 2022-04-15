@@ -20,18 +20,24 @@
         <v-col class="" cols="12" md="6">
           <v-card class="pa-2 my-16" elevation="0" max-width="">
             <div class="text-center">
-            <v-btn class="mx-2 boton" fab dark x-large color="logo" :loading="btnImage.isSelecting" @click="onButtonClick">
-              <!--<v-icon class="icono">
-                fas fa-user
-              </v-icon>-->
-            </v-btn>
-            <input
-            ref="uploader"
-            type="file"
-            accept="image/*"
-            class="d-none botonInput"
-            @change="onFileChanged"
-            >            
+              <input
+                type="file"
+                accept="image/*"
+                class="d-none"
+                ref="file"
+                @change="change"
+              />
+              <div class="circuloImagen">
+                <img :src="src" alt="" class="logo circulo" />                
+                <div>
+                  <button @click="browse()" class="rounded btnCircle mt-5">
+                    <v-icon size="30"> fas fa-camera </v-icon>
+                  </button>
+                  <button v-if="file" @click="remove()" class="rounded btnCircle ml-3 mt-5">
+                    <v-icon size="30"> fas fa-trash </v-icon>
+                  </button>
+                </div>
+              </div>
               <v-card-title class="justify-center text-h6 font-weight-regular">
                 <h2 class="indigo--text">{{ currentTitle }}</h2>
               </v-card-title>
@@ -160,7 +166,12 @@
 </template>
 
 <script>
+import PictureInput from "vue-picture-input";
 export default {
+  props: {
+    value: File,
+    defaultSrc: String,
+  },
   //Creacion de objetos
   data: () => ({
     loading: false,
@@ -173,19 +184,13 @@ export default {
       menu: false,
     },
 
-    //cargarImagen
-    btnImage:{
-      defaultButtonText: 'fas fa-user',
-      selectedFile:null,
-      isSelecting:false,
-      image: null,
-      imageUrl: ''
-    }
+    src: null,
+    file: null,
   }),
 
   watch: {
     menu(val) {
-      val && setTimeout(() => (this.calendario.activePicker = 'YEAR'));
+      val && setTimeout(() => (this.calendario.activePicker = "YEAR"));
     },
   },
 
@@ -194,19 +199,24 @@ export default {
       this.$refs.menu.save(date);
     },
 
-    onButtonClick(){
-      this.btnImage.isSelecting = true
-      window.addEventListener('focus', () => {
-        this.isSelecting = false
-
-      }, {once: true})
-      this.$refs.uploader.click()
-      //hideElements()
-    },    
-    onFileChanged(e){
-      this.selectedFile = e.target.files[0]
-      console.log(this.selectedFile)      
+    browse() {
+      this.$refs.file.click();
     },
+    change(e) {
+      this.file = e.target.files[0];
+      this.$emit("input", this.file);
+      let reader = new FileReader();
+      reader.readAsDataURL(this.file);
+      reader.onload = (e) => {
+        this.src = e.target.result;
+      };
+    },
+
+    remove(){
+      this.file = null;
+      this.src = this.defaultSrc;
+      this.$emit('input', this.file)
+    }
   },
 
   //Metodos computados
@@ -226,10 +236,6 @@ export default {
           return "Account created";
       }
     },
-
-    buttonText(){
-      return this.btnImage.selectedFile ? this.btnImage.selectedFile.name : this.btnImage.defaultButtonText
-    }
   },
 };
 </script>
@@ -238,5 +244,23 @@ export default {
 .cardColors {
   /* background-color: rgba(255, 255, 255, 0.5) !important;
     border-color: white !important; */
+}
+
+.circuloImagen{
+  position: relative;
+}
+
+.circulo {  
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;    
+}
+
+.btnCircle:hover {
+  background-color: rgb(154, 166, 173);
+  opacity: 25;
+  outline: none;
 }
 </style>
