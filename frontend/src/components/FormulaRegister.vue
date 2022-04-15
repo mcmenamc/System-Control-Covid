@@ -18,51 +18,38 @@
           </v-img>
         </v-col>
         <v-col class="" cols="12" md="6">
-          <v-card class="pa-2 my-16" elevation="0" max-width="">
-            <div class="text-center">
-              <input
-                type="file"
-                accept="image/*"
-                class="d-none"
-                ref="file"
-                @change="change"
-              />
-              <div class="circuloImagen">
-                <img :src="src" alt="" class="logo circulo" />                
-                <div>
-                  <button @click="browse()" class="rounded btnCircle mt-5">
-                    <v-icon size="30"> fas fa-camera </v-icon>
-                  </button>
-                  <button v-if="file" @click="remove()" class="rounded btnCircle ml-3 mt-5">
-                    <v-icon size="30"> fas fa-trash </v-icon>
-                  </button>
-                </div>
-              </div>
+          <v-card class="pa-2 my-1" elevation="0" max-width="">
+            <v-form v-on:submit.prevent>
               <v-card-title class="justify-center text-h6 font-weight-regular">
-                <h2 class="indigo--text">{{ currentTitle }}</h2>
+                <h2 class="indigo--text">Regístrate</h2>
               </v-card-title>
-            </div>
-            <v-window v-model="step">
-              <v-window-item :value="1">
-                <v-form>
-                  <v-text-field type="text" label="Nombre" placeholder="Nombre">
-                  </v-text-field>
-                  <v-text-field
-                    type="text"
-                    label="Apellido Paterno"
-                    placeholder="Apellido Paterno"
-                  >
-                  </v-text-field>
-                  <v-text-field
-                    type="text"
-                    label="Apellido Materno"
-                    placeholder="Apellido Materno"
-                  >
-                  </v-text-field>
-                </v-form>
-              </v-window-item>
-              <v-window-item :value="2">
-                <v-form>
+              <div class="text-center">
+                <input
+                  type="file"
+                  accept="image/*"
+                  class="d-none"
+                  ref="file"
+                  @change="change"
+                />
+                <div class="circuloImagen">
+                  <img :src="src" alt="" class="logo circulo" />
+                  <div>
+                    <button @click="browse()" class="rounded btnCircle mt-2">
+                      <v-icon color="blue" size="35"> fas fa-camera </v-icon>
+                    </button>
+                    <button
+                      v-if="file"
+                      @click="remove()"
+                      class="rounded btnCircle ml-5 mt-2"
+                    >
+                      <v-icon color="red" size="35"> fas fa-trash </v-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>              
+              <h3 class="">{{ currentTitle }}</h3>
+              <v-window v-model="step">
+                <v-window-item :value="1">
                   <v-text-field type="email" label="e-mail" placeholder="email">
                   </v-text-field>
                   <v-text-field
@@ -77,10 +64,27 @@
                     placeholder="Confirmar contraseña"
                   >
                   </v-text-field>
-                </v-form>
-              </v-window-item>
-              <v-window-item :value="3">
-                <v-form>
+
+
+                  
+                </v-window-item>
+                <v-window-item :value="2">
+                  <v-text-field type="text" label="Nombre" placeholder="Nombre">
+                  </v-text-field>
+                  <v-text-field
+                    type="text"
+                    label="Apellido Paterno"
+                    placeholder="Apellido Paterno"
+                  >
+                  </v-text-field>
+                  <v-text-field
+                    type="text"
+                    label="Apellido Materno"
+                    placeholder="Apellido Materno"
+                  >
+                  </v-text-field>
+                </v-window-item>
+                <v-window-item :value="3">
                   <v-menu
                     ref="menu"
                     v-model="calendario.menu"
@@ -135,29 +139,27 @@
                       </v-col>
                     </v-row>
                   </v-radio-group>
-                </v-form>
-              </v-window-item>
-              <v-window-item :value="4">
-                <v-form>
+                </v-window-item>
+                <v-window-item :value="4">
                   <v-text-field> </v-text-field>
-                </v-form>
-              </v-window-item>
-            </v-window>
-            <v-divider class="d-none"></v-divider>
-            <v-card-actions>
-              <v-btn :dissabled="step === 1" text @click="step--">
-                Atras
-              </v-btn>
-              <v-spacer></v-spacer>
-              <v-btn
-                :disabled="step === 4"
-                color="primary"
-                depressed
-                @click="step++"
-              >
-                Adelante
-              </v-btn>
-            </v-card-actions>
+                </v-window-item>
+              </v-window>
+              <v-divider class="d-none"></v-divider>
+              <v-card-actions>
+                <v-btn :dissabled="step === 1" text @click="step--">
+                  Atras
+                </v-btn>
+                <v-spacer></v-spacer>
+                <v-btn
+                  :disabled="step === 4"
+                  color="primary"
+                  depressed
+                  @click="step++"
+                >
+                  Adelante
+                </v-btn>
+              </v-card-actions>
+            </v-form>
           </v-card>
         </v-col>
       </v-row>
@@ -212,11 +214,11 @@ export default {
       };
     },
 
-    remove(){
+    remove() {
       this.file = null;
       this.src = this.defaultSrc;
-      this.$emit('input', this.file)
-    }
+      this.$emit("input", this.file);
+    },
   },
 
   //Metodos computados
@@ -225,9 +227,9 @@ export default {
     currentTitle() {
       switch (this.step) {
         case 1:
-          return "Registrate";
+          return "Crear cuenta";
         case 2:
-          return "Ingresa tu correo y contraseña";
+          return "Datos personales";
         case 3:
           return "Ingresa tus datos personales";
         case 4:
@@ -246,20 +248,20 @@ export default {
     border-color: white !important; */
 }
 
-.circuloImagen{
+.circuloImagen {
   position: relative;
 }
 
-.circulo {  
+.circulo {
   display: inline-block;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  clip-path: circle();
   overflow: hidden;
-  border-radius: 50%;    
+  border-radius: 50%;
 }
 
 .btnCircle:hover {
-  background-color: rgb(154, 166, 173);
+  background-color: rgb(244, 250, 253);
   opacity: 25;
   outline: none;
 }
