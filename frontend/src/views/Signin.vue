@@ -85,7 +85,7 @@ export default {
 </script>
 
 <style scoped>
-.imag {
+/* .imag {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -98,5 +98,5 @@ export default {
 .cardColors {
   background-color: rgba(255, 255, 255, 0.5) !important;
   border-color: white !important;
-}
+} */
 </style>

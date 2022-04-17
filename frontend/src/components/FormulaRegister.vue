@@ -46,38 +46,81 @@
                     </button>
                   </div>
                 </div>
-              </div>              
+              </div>
               <h3 class="">{{ currentTitle }}</h3>
               <v-window v-model="step">
                 <v-window-item :value="1">
-                  <v-text-field type="email" label="e-mail" placeholder="email">
-                  </v-text-field>
                   <v-text-field
-                    type="password"
-                    label="Contraseña"
-                    placeholder="Contraseña"
+                    v-model="email"
+                    :error-messages="emailErrors"
+                    @input="$v.email.$touch()"
+                    @blur="$v.email.$touch()"
+                    required
+                    type="email"
+                    label="e-mail"
+                    placeholder="email"
                   >
                   </v-text-field>
                   <v-text-field
+                    v-model="password"                 
+                    :type="showPassword ? 'text' : 'password'"
+                    :error-messages="passwordErrors"
+                    required
+                    @input="$v.password.$touch()"
+                    @blur="$v.password.$touch()"
+                    label="Contraseña"
+                    placeholder="Contraseña"                    
+                    :append-icon="showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'"
+                    @click:append="showPassword =! showPassword"
+                  >
+                  </v-text-field>
+                  <v-text-field
+                    v-model="confirmPassword"
+                    :type="showPassword ? 'text' : 'password'"
+                    :error-messages="confirmPasswordErrors"
+                    required
+                    @input="$v.confirmPassword.$touch()"
+                    @blur="$v.confirmPassword.$touch()"
                     type="password"
                     label="Confirma tu contraseña"
                     placeholder="Confirmar contraseña"
+                    :append-icon="showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'"
+                    @click:append="showPassword =! showPassword"
+                    
                   >
                   </v-text-field>
-
-
-                  
                 </v-window-item>
                 <v-window-item :value="2">
-                  <v-text-field type="text" label="Nombre" placeholder="Nombre">
+                  <v-text-field 
+                    v-model="nomb"
+                    :error-messages="nombreErrors"
+                    :counter="3"
+                    required
+                    @input="$v.nomb.$touch()"
+                    @blur="$v.nomb.$touch()"
+                    type="text" 
+                    label="Nombre" 
+                    placeholder="Nombre">
                   </v-text-field>
                   <v-text-field
+                    v-model="apePat"
+                    :error-messages="apellidoPatErrors"
+                    :counter="3"
+                    required
+                    @input="$v.apePat.$touch()"
+                    @blur="$v.apePat.$touch()"
                     type="text"
                     label="Apellido Paterno"
                     placeholder="Apellido Paterno"
                   >
                   </v-text-field>
                   <v-text-field
+                    v-model="apeMat"
+                    :error-messages="apellidoMatErrors"
+                    :counter="3"
+                    required
+                    @input="$v.apeMat.$touch()"
+                    @blur="$v.apeMat.$touch()"
                     type="text"
                     label="Apellido Materno"
                     placeholder="Apellido Materno"
@@ -146,7 +189,12 @@
               </v-window>
               <v-divider class="d-none"></v-divider>
               <v-card-actions>
-                <v-btn :dissabled="step === 1" text @click="step--">
+                <v-btn
+                  :disabled="step === 1"
+                  text
+                  @click="step--, hideButton()"
+                  id="btnAtras"
+                >
                   Atras
                 </v-btn>
                 <v-spacer></v-spacer>
@@ -154,7 +202,8 @@
                   :disabled="step === 4"
                   color="primary"
                   depressed
-                  @click="step++"
+                  @click="step++, showButton()"
+                  id="btnSig"
                 >
                   Adelante
                 </v-btn>
@@ -168,12 +217,25 @@
 </template>
 
 <script>
-import PictureInput from "vue-picture-input";
+//Importación de Vuelidate
+import { validationMixin } from "vuelidate";
+import { required, minLength, email, sameAs } from "vuelidate/lib/validators";
+//Exportacion de datos y funciones
 export default {
+  mixins: [validationMixin],
   props: {
     value: File,
     defaultSrc: String,
   },
+  validations: {
+    nomb: { required, minLength: minLength(3) },
+    apePat: { required, minLength: minLength(6) },
+    apeMat: { required, minLength: minLength(6) },
+    email: { required, email },
+    password: { required, minLength: minLength(5) },
+    confirmPassword: { sameAsPassword: sameAs("password") },
+  },
+
   //Creacion de objetos
   data: () => ({
     loading: false,
@@ -188,11 +250,19 @@ export default {
 
     src: null,
     file: null,
+
+    nomb: "",
+    apePat: "",
+    apeMat: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    showPassword: false
   }),
 
   watch: {
     menu(val) {
-      val && setTimeout(() => (this.calendario.activePicker = "YEAR"));
+      val && setTimeout(() => (this.activePicker = "YEAR"));
     },
   },
 
@@ -219,6 +289,17 @@ export default {
       this.src = this.defaultSrc;
       this.$emit("input", this.file);
     },
+
+    hideButton() {
+      if (this.step === 1) {
+        document.getElementById("btnAtras").style.visibility = "hidden";
+      }
+    },
+    showButton() {
+      if (this.step === 2) {
+        document.getElementById("btnAtras").style.visibility = "visible";
+      }
+    },
   },
 
   //Metodos computados
@@ -238,6 +319,53 @@ export default {
           return "Account created";
       }
     },
+    emailErrors() {
+      const errors = [];
+      if (!this.$v.email.$dirty) return errors;
+      !this.$v.email.email &&
+        errors.push("Debe ser válido el correo electrónico");
+      !this.$v.email.required && errors.push("E-mail es requerido");
+      return errors;
+    },
+    passwordErrors() {
+      const errors = [];
+      !this.$v.password.minLength &&
+        errors.push("La contraseña debe contener 5 caracteres como mínimo");
+      !this.$v.password.required && errors.push("Password is required");
+      return errors;
+    },
+    confirmPasswordErrors(){
+      const errors = [];
+      if (!this.$v.confirmPassword.$dirty) return errors;
+      !this.$v.confirmPassword.sameAsPassword &&
+        errors.push("La contraseña debe tener al menos 5 caracteres");
+      return errors;
+    },
+    nombreErrors(){
+      const errors = [];
+      if(!this.$v.nomb.$dirty) return errors;
+      !this.$v.nomb.minLength &&
+        errors.push("El nombre debe tener más de 4 caracteres");
+      !this.$v.nomb.required && errors.push("Nombre es requerido");
+      return errors;
+    },
+    apellidoPatErrors(){
+      const errors = [];
+      if(!this.$v.apePat.$dirty) return errors;
+      !this.$v.apePat.minLength &&
+        errors.push("El apedillo debe tener más de 6 caracteres");
+      !this.$v.apePat.required && errors.push("Nombre es requerido");
+      return errors;
+    },
+    apellidoMatErrors(){
+      const errors = [];
+      if(!this.$v.apeMat.$dirty) return errors;
+      !this.$v.apeMat.minLength &&
+        errors.push("El apedillo debe tener más de 6 caracteres");
+      !this.$v.apeMat.required && errors.push("Nombre es requerido");
+      return errors;
+    }
+    
   },
 };
 </script>

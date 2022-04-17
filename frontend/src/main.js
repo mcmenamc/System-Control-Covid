@@ -9,9 +9,9 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueSweetalert2 from 'vue-sweetalert2';
-Vue.use(VueAxios, axios, VueSweetalert2)
+import Vuelidate from 'vuelidate'
+Vue.use(VueAxios, axios, VueSweetalert2, Vuelidate)
 axios.defaults.baseURL = 'https://sistema-control-covid.herokuapp.com/api';
-
 Vue.config.productionTip = false
 
 new Vue({
