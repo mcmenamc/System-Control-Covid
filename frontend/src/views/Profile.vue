@@ -1,6 +1,6 @@
 <template>
   <div>
-      <v-container>
+      <v-container fluid fill-heigh>
           <Credencial/>
       </v-container>
   </div>

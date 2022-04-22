@@ -33,14 +33,14 @@
       
       <v-navigation-drawer v-model="drawer" absolute temporary>
           <v-list nav dense>
-              <v-subheader>Settings</v-subheader>
+              <v-subheader>Settings</v-subheader>              
               <v-list-item-group active-class="green text--accent-4">
                   <v-list-item
                     v-for="item in items"
                     :key="item.id"
                     :to="item.url"
                     :class="`${item.btn ? '' : 'd-none'}`"
-                  >                      
+                  >                                        
                     <v-list-item-icon>
                         <v-icon>
                             {{item.icon}}
@@ -51,6 +51,7 @@
                     </v-list-item-title>
                   </v-list-item>
               </v-list-item-group>
+
           </v-list>
       </v-navigation-drawer>
   </div>
@@ -61,7 +62,7 @@ export default {
     name: "App",
 
     data:() => ({
-        drawer: false,
+        drawer: false,        
         tab: null,
         items: [
             //0
